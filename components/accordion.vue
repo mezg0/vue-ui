@@ -74,12 +74,14 @@ export const AccordionTrigger = defineComponent((_, context) => {
   const api = useApi();
   const value = useValue();
   return () => (
-    <button
-      {...api.value.getTriggerProps({ value })}
-      class="flex flex-1 items-center justify-between py-4 font-medium hover:underline "
-    >
-      {context.slots.default?.()}
-    </button>
+    <h3>
+      <button
+        {...api.value.getTriggerProps({ value })}
+        class="flex flex-1 items-center justify-between py-4 font-medium hover:underline "
+      >
+        {context.slots.default?.()}
+      </button>
+    </h3>
   );
 });
 
