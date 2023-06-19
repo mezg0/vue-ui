@@ -50,6 +50,8 @@
         </AccordionContent>
       </AccordionItem>
     </Accordion>
+
+    <Badge variant="secondary">Hello</Badge>
   </div>
 </template>
 <script setup lang="ts">
