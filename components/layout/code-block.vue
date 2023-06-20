@@ -16,18 +16,6 @@ hljs.registerLanguage("css", css);
 
 const props = defineProps<{ content: string; language: string }>();
 
-const html = () => {
-  return hljs.highlight(props.content.replaceAll("scropt", "script"), {
-    language: props.language,
-  }).value;
-};
-
-const proxyHtml = ref<string | null>(null);
-
-onMounted(() => {
-  proxyHtml.value = html();
-});
-
 const isCopied = ref(false);
 
 const onCopyClick = () => {
@@ -35,11 +23,31 @@ const onCopyClick = () => {
     isCopied.value = true;
   });
 };
+
+const codeBlock = ref<HTMLElement | null>(null);
+const showScrollShadow = ref(false);
+
+onMounted(() => {
+  if (!codeBlock.value) return;
+  // if the height of the code block is lower than the height of the content show the shadow
+
+  if (codeBlock.value?.scrollHeight > codeBlock.value?.clientHeight) {
+    showScrollShadow.value = true;
+  }
+});
 </script>
 
 <template>
-  <div class="relative" v-if="proxyHtml">
-    <pre class="bg-background text-foreground border" v-html="proxyHtml"></pre>
+  <div class="relative">
+    <pre
+      class="bg-background text-foreground border max-h-96"
+      ref="codeBlock"
+      v-html="hljs.highlight(props.content, { language: props.language }).value"
+    />
+    <div
+      class="absolute flex items-center justify-center bg-gradient-to-b from-background/30 to-muted/90 p-2 inset-x-0 bottom-0 h-12 pointer-events-none"
+      v-if="showScrollShadow"
+    />
     <Button
       size="sm"
       variant="secondary"
