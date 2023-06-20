@@ -81,7 +81,7 @@ export const AccordionTrigger = defineComponent({
       <h3>
         <button
           {...api.value.getTriggerProps({ value })}
-          class="flex flex-1 items-center justify-between py-4 font-medium hover:underline "
+          class="flex flex-1 items-center justify-between py-4 font-medium hover:underline w-full"
         >
           {context.slots.default?.()}
         </button>
