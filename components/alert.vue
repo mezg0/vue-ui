@@ -34,16 +34,20 @@ withDefaults(
 </template>
 
 <script lang="tsx">
-export const AlertTitle = defineComponent((_, context) => {
-  return () => (
-    <h3 class="text-lg font-medium leading-6">{context.slots.default?.()}</h3>
-  );
+export const AlertTitle = defineComponent({
+  setup(_, context) {
+    return () => (
+      <h3 class="text-lg font-medium leading-6">{context.slots.default?.()}</h3>
+    );
+  },
 });
 
-export const AlertDescription = defineComponent((_, context) => {
-  return () => (
-    <p class="text-sm [&_p]:leading-relaxed">{context.slots.default?.()}</p>
-  );
+export const AlertDescription = defineComponent({
+  setup(_, context) {
+    return () => (
+      <p class="text-sm [&_p]:leading-relaxed">{context.slots.default?.()}</p>
+    );
+  },
 });
 </script>
 

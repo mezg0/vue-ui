@@ -70,3 +70,11 @@
   }
 }
 
+html {
+  @apply bg-background text-foreground;
+}
+
+.page {
+  @apply prose dark:prose-invert prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-foreground prose-pre:bg-background;
+}
+

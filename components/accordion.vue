@@ -1,7 +1,14 @@
 <script setup lang="tsx">
 import * as accordion from "@zag-js/accordion";
 import { normalizeProps, useMachine } from "@zag-js/vue";
-import { computed } from "vue";
+import {
+  computed,
+  provide,
+  defineComponent,
+  ComputedRef,
+  inject,
+  InjectionKey,
+} from "vue";
 
 const [state, send] = useMachine(
   accordion.machine({ id: "1", collapsible: true })
@@ -21,8 +28,6 @@ provide(accordionInjectionKey, api);
 </template>
 
 <script lang="tsx">
-import { defineComponent } from "vue";
-
 const accordionInjectionKey = Symbol() as InjectionKey<
   ComputedRef<ReturnType<typeof accordion.connect>>
 >;
@@ -49,8 +54,14 @@ const useValue = () => {
   return value;
 };
 
-export const AccordionItem = defineComponent(
-  (props: { value: string }, context) => {
+export const AccordionItem = defineComponent({
+  props: {
+    value: {
+      type: String,
+      required: true,
+    },
+  },
+  setup(props, context) {
     const api = useApi();
 
     provide(valueInjectionKey, props.value);
@@ -60,39 +71,35 @@ export const AccordionItem = defineComponent(
       </div>
     );
   },
-  {
-    props: {
-      value: {
-        type: String,
-        required: true,
-      },
-    },
-  }
-);
-
-export const AccordionTrigger = defineComponent((_, context) => {
-  const api = useApi();
-  const value = useValue();
-  return () => (
-    <h3>
-      <button
-        {...api.value.getTriggerProps({ value })}
-        class="flex flex-1 items-center justify-between py-4 font-medium hover:underline "
-      >
-        {context.slots.default?.()}
-      </button>
-    </h3>
-  );
 });
 
-export const AccordionContent = defineComponent((_, context) => {
-  const api = useApi();
-  const value = useValue();
-  return () => (
-    <div {...api.value.getContentProps({ value })}>
-      {context.slots.default?.()}
-    </div>
-  );
+export const AccordionTrigger = defineComponent({
+  setup(_, context) {
+    const api = useApi();
+    const value = useValue();
+    return () => (
+      <h3>
+        <button
+          {...api.value.getTriggerProps({ value })}
+          class="flex flex-1 items-center justify-between py-4 font-medium hover:underline "
+        >
+          {context.slots.default?.()}
+        </button>
+      </h3>
+    );
+  },
+});
+
+export const AccordionContent = defineComponent({
+  setup(_, context) {
+    const api = useApi();
+    const value = useValue();
+    return () => (
+      <div {...api.value.getContentProps({ value })}>
+        {context.slots.default?.()}
+      </div>
+    );
+  },
 });
 </script>
 

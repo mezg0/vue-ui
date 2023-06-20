@@ -10,6 +10,8 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxtjs/color-mode": "^3.2.0",
+    "@tailwindcss/typography": "^0.5.9",
     "@types/node": "^18",
     "autoprefixer": "^10.4.14",
     "nuxt": "^3.5.2",
@@ -20,6 +22,8 @@
     "@zag-js/accordion": "^0.10.2",
     "@zag-js/dialog": "^0.10.2",
     "@zag-js/vue": "^0.10.2",
-    "class-variance-authority": "^0.6.0"
+    "class-variance-authority": "^0.6.0",
+    "highlight.js": "^11.8.0",
+    "lucide-vue-next": "^0.246.0"
   }
 }
