@@ -37,7 +37,9 @@ withDefaults(
 export const AlertTitle = defineComponent({
   setup(_, context) {
     return () => (
-      <h3 class="text-lg font-medium leading-6">{context.slots.default?.()}</h3>
+      <h3 class="mb-1 font-medium leading-none tracking-tight">
+        {context.slots.default?.()}
+      </h3>
     );
   },
 });

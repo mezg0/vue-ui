@@ -258,6 +258,15 @@ const styleConfig = `
     --radius: 0.5rem;
   }
 }
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
 `;
 </script>
 

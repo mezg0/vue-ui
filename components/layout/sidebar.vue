@@ -12,7 +12,7 @@
       <template v-for="link in links">
         <span
           aria-disabled="true"
-          class="cursor-not-allowed text-muted-foreground opacity-50 w-max"
+          class="cursor-not-allowed text-muted-foreground opacity-25 w-max"
           :class="buttonVariants({ variant: 'link', size: 'xs' })"
           v-if="link.disabled"
         >
@@ -21,7 +21,7 @@
         <NuxtLink
           v-else
           :href="link.url"
-          class="[&.router-link-exact-active]:font-bold w-max"
+          class="[&.router-link-exact-active]:opacity-100 opacity-50 w-max"
           :class="buttonVariants({ variant: 'link', size: 'xs' })"
         >
           {{ link.name }}

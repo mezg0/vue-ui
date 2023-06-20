@@ -37,5 +37,9 @@ import { Menu } from "lucide-vue-next";
 import Sheet, { SheetContent, SheetTrigger } from "./components/sheet.vue";
 
 const sheetOpen = ref(false);
+
+const color = useColorMode();
+
+color.preference = "light";
 </script>
 
