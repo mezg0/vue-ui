@@ -17,7 +17,9 @@ hljs.registerLanguage("css", css);
 const props = defineProps<{ content: string; language: string }>();
 
 const html = () => {
-  return hljs.highlight(props.content, { language: props.language }).value;
+  return hljs.highlight(props.content.replaceAll("scropt", "script"), {
+    language: props.language,
+  }).value;
 };
 
 const proxyHtml = ref<string | null>(null);
