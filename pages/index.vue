@@ -1,5 +1,30 @@
 <template>
   <div class="page">
+    <AlertDialog @confirm="console.log('confirmed')">
+      <template #trigger-button="{ triggerProps }">
+        <Button v-bind="triggerProps" variant="outline" size="round">
+          <Settings2 class="h-4 w-4" /> </Button
+      ></template>
+      <template #title>Are you absolutely sure?</template>
+      <template #description>
+        This action cannot be undone. This will permanently delete your account
+        and remove your data from our servers.
+      </template>
+      <template #confirm-button>Continue</template>
+      <template #cancel-button>Cancel</template>
+    </AlertDialog>
+
+    <AlertDialog variant="destructive">
+      <template #trigger-content>Open</template>
+      <template #title>Are you absolutely sure?</template>
+      <template #description>
+        This action cannot be undone. This will permanently delete your account
+        and remove your data from our servers.
+      </template>
+      <template #confirm-button>Continue</template>
+      <template #cancel-button>Cancel</template>
+    </AlertDialog>
+
     <h1>Customizable and Reusable Vue components</h1>
     <p>
       A collection of customizable Vue components built with
@@ -33,69 +58,11 @@
       <NuxtLink href="/component/accordion">components</NuxtLink> to your
       project.
     </p>
-
-    <Alert class="not-prose">
-      <AlertTitle>You have a notification</AlertTitle>
-      <AlertDescription> This is the description </AlertDescription>
-    </Alert>
-
-    <AlertDialog>
-      <AlertDialogTrigger as-child v-slot="triggerProps">
-        <Button v-bind="triggerProps">Open</Button>
-      </AlertDialogTrigger>
-      <AlertDialogContent>
-        <AlertDialogHeader>
-          <AlertDialogTitle> Delete your account </AlertDialogTitle>
-          <AlertDialogDescription>
-            Are you sure? This will permanently delete your account.
-          </AlertDialogDescription>
-        </AlertDialogHeader>
-        <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction variant="destructive">Delete</AlertDialogAction>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
-
-    <Sheet>
-      <SheetTrigger as-child v-slot="triggerProps">
-        <Button v-bind="triggerProps" variant="outline">Open Sheet</Button>
-      </SheetTrigger>
-      <SheetContent position="left">
-        <SheetHeader>
-          <SheetTitle> Delete your account </SheetTitle>
-          <SheetDescription>
-            Are you sure? This will permanently delete your account.
-          </SheetDescription>
-        </SheetHeader>
-        <SheetFooter>
-          <SheetClose>Save</SheetClose>
-        </SheetFooter>
-      </SheetContent>
-    </Sheet>
-
-    <Accordion type="single" collapsible>
-      <AccordionItem value="item-1">
-        <AccordionTrigger>Is it accessible?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It adheres to the WAI-ARIA design pattern.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-2">
-        <AccordionTrigger>Is it accessible?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It adheres to the WAI-ARIA design pattern.
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
-
-    <Badge variant="secondary">Hello</Badge>
   </div>
 </template>
 <script setup lang="ts">
-import Alert, { AlertDescription, AlertTitle } from "~/components/alert.vue";
-import { buttonVariants } from "~/components/button.vue";
-import AlertDialog, {
+import { Settings2 } from "lucide-vue-next";
+import {
   AlertDialogTrigger,
   AlertDialogContent,
   AlertDialogHeader,
@@ -105,22 +72,7 @@ import AlertDialog, {
   AlertDialogCancel,
   AlertDialogAction,
 } from "~/components/alert-dialog.vue";
-
-import Accordion, {
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-} from "~/components/accordion.vue";
-
-import Sheet, {
-  SheetTrigger,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetDescription,
-  SheetFooter,
-  SheetClose,
-} from "~/components/sheet.vue";
+import Button from "~/components/button.vue";
 
 const tailwindConfig = `/** @type {import('tailwindcss').Config} */
 module.exports = {

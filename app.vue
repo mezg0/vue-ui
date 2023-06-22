@@ -26,7 +26,7 @@
       >
         <LayoutSidebar />
       </div>
-      <main class="py-8">
+      <main class="py-8 min-h-[calc(100vh-3.5rem)]">
         <NuxtPage />
       </main>
     </div>

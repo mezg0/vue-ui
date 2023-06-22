@@ -5,7 +5,14 @@ import Tabs, {
   TabsTrigger,
 } from "~/components/tabs.vue";
 
-defineProps<{ previewCode: string }>();
+withDefaults(
+  defineProps<{
+    centered?: boolean;
+  }>(),
+  {
+    centered: true,
+  }
+);
 </script>
 
 <template>
@@ -18,13 +25,18 @@ defineProps<{ previewCode: string }>();
       <Card
         class="not-prose flex items-center justify-center p-10 min-h-[350px]"
       >
-        <div class="w-full max-w-[70%]">
-          <slot />
+        <div
+          class="w-full md:max-w-[70%] not-prose"
+          :class="centered && 'flex justify-center'"
+        >
+          <ContentSlot :use="$slots.preview" />
         </div>
       </Card>
     </TabsContent>
     <TabsContent value="code">
-      <LayoutCodeBlock :content="previewCode" language="vue" />
+      <CodeBlock>
+        <ContentSlot :use="$slots.code" />
+      </CodeBlock>
     </TabsContent>
   </Tabs>
 </template>
