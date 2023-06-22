@@ -62,8 +62,8 @@ defineExpose({
     <Transition
       enter-from-class="opacity-0"
       leave-to-class="opacity-0"
-      enter-active-class="transition-opacity duration-150 ease-out"
-      leave-active-class="transition-opacity duration-100 ease-in"
+      enter-active-class="transition-opacity duration-200 ease-out"
+      leave-active-class="transition-opacity duration-150  ease-in"
     >
       <div
         class="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm"
@@ -74,8 +74,8 @@ defineExpose({
     <Transition
       enter-from-class="md:opacity-0 md:scale-90 translate-y-full md:translate-y-0"
       leave-to-class="md:opacity-0 md:scale-90 translate-y-full md:translate-y-0"
-      enter-active-class="transition duration-200 md:duration-150 ease-out"
-      leave-active-class="transition duration-150 md:duration-100 ease-in"
+      enter-active-class="transition duration-200 ease-out"
+      leave-active-class="transition duration-150  ease-in"
     >
       <div
         class="fixed inset-0 z-50 flex items-end justify-center sm:items-center"
