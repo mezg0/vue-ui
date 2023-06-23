@@ -1,4 +1,5 @@
 <template>
+  <AlertDialogPreview />
   <div class="page">
     <AlertDialog @confirm="console.log('confirmed')">
       <template #trigger-button="{ triggerProps }">
