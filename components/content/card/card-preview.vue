@@ -26,7 +26,7 @@ const notifications = [
 </script>
 
 <template>
-  <Card class="w-[380px]">
+  <Card class="w-[350px]">
     <CardHeader>
       <CardTitle>Notifications</CardTitle>
       <CardDescription>You have 3 unread messages.</CardDescription>

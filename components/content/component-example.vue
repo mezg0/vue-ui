@@ -1,9 +1,5 @@
 <script setup lang="ts">
-import Tabs, {
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "~/components/tabs.vue";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
 
 import { Card } from "~/components/ui/card";
 withDefaults(
