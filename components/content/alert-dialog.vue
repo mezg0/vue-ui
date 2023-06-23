@@ -72,8 +72,8 @@ defineExpose({
       />
     </Transition>
     <Transition
-      enter-from-class="md:opacity-0 md:scale-90 translate-y-full md:translate-y-0"
-      leave-to-class="md:opacity-0 md:scale-90 translate-y-full md:translate-y-0"
+      enter-from-class="sm:opacity-0 sm:scale-90 translate-y-full sm:translate-y-0"
+      leave-to-class="sm:opacity-0 sm:scale-90 translate-y-full sm:translate-y-0"
       enter-active-class="transition duration-200 ease-out"
       leave-active-class="transition duration-150  ease-in"
     >

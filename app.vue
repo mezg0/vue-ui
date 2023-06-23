@@ -8,7 +8,7 @@
               <button v-bind="triggerProps"><Menu /></button>
             </SheetTrigger>
             <SheetContent position="left" size="xl">
-              <LayoutSidebar @click.native="sheetOpen = false" />
+              <LayoutSidebar />
             </SheetContent>
           </Sheet>
         </div>
@@ -37,6 +37,12 @@ import { Menu } from "lucide-vue-next";
 import Sheet, { SheetContent, SheetTrigger } from "./components/sheet.vue";
 
 const sheetOpen = ref(false);
+
+const route = useRoute();
+
+watch(route, () => {
+  sheetOpen.value = false;
+});
 
 const color = useColorMode();
 
