@@ -239,7 +239,11 @@ const AlertDialogCancel = defineComponent({
     const api = useDialogContext();
 
     return () => (
-      <Button variant="secondary" {...api.value.closeTriggerProps}>
+      <Button
+        class="mt-2 sm:mt-0"
+        variant="secondary"
+        {...api.value.closeTriggerProps}
+      >
         {context.slots.default?.()}
       </Button>
     );

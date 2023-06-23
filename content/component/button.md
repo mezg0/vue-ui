@@ -106,7 +106,7 @@ import { Button } from "~/components/ui/button";
 <Button variant="secondary">Button</Button>
 ```
 
-## Link
+### Link
 You can use the `buttonVariants` helper to create a link that looks like a button.
 
 ::code-block
@@ -116,7 +116,7 @@ import { buttonVariants } from "~/components/ui/button"
 ::
 
 ::code-block
-```html
+```vue
 <Link class="buttonVariants({ variant: 'outline' })">Click here</Link>
 ```
 ::
