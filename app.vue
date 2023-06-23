@@ -8,7 +8,7 @@
               <button v-bind="triggerProps"><Menu /></button>
             </SheetTrigger>
             <SheetContent position="left" size="xl">
-              <LayoutSidebar />
+              <LayoutSidebar :navigation="navigation" />
             </SheetContent>
           </Sheet>
         </div>
@@ -24,7 +24,7 @@
       <div
         class="border-r h-full max-h-screen overflow-auto py-8 hidden md:block sticky top-14"
       >
-        <LayoutSidebar />
+        <LayoutSidebar :navigation="navigation" />
       </div>
       <main class="py-8 min-h-[calc(100vh-3.5rem)]">
         <NuxtPage />
@@ -35,6 +35,10 @@
 <script setup>
 import { Menu } from "lucide-vue-next";
 import Sheet, { SheetContent, SheetTrigger } from "./components/sheet.vue";
+
+const { data: navigation } = await useAsyncData("navigation", () => {
+  return fetchContentNavigation();
+});
 
 const sheetOpen = ref(false);
 

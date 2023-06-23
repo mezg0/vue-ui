@@ -35,8 +35,15 @@
 import { buttonVariants } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
 
-const { data: navigation } = await useAsyncData("navigation", () => {
-  return fetchContentNavigation();
-});
+defineProps<{
+  navigation: {
+    title: string;
+    children: {
+      title: string;
+      _path: string;
+      _draft?: boolean;
+    }[];
+  }[];
+}>();
 </script>
 
