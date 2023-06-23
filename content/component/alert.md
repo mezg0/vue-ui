@@ -12,7 +12,7 @@ Displays a callout for user attention.
 ## Installation
 
 ### Copy and paste this into your project
-::component-source{src="/components/ui/alert-dialog.tsx"}
+::component-source{src="/components/ui/alert.tsx"}
 ::
 
 ## Usage
