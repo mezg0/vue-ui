@@ -5,6 +5,8 @@ import Tabs, {
   TabsTrigger,
 } from "~/components/tabs.vue";
 
+import { Card } from "~/components/ui/card";
+
 withDefaults(
   defineProps<{
     centered?: boolean;

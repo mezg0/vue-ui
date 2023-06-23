@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function asChild(slots: Slots, attrs: Record<string, unknown>) {
+export function renderAsChild(slots: Slots, attrs: Record<string, unknown>) {
   if (!slots.default?.().length) return null;
 
   return h(slots.default()[0], { ...attrs });

@@ -41,7 +41,7 @@ watch(
 
 <script lang="tsx">
 import type { InjectionKey } from "vue";
-import Button, { ButtonVariant } from "~/components/button.vue";
+import { Button } from "~/components/ui/button";
 import { Teleport, Transition } from "vue";
 import { VariantProps, cva } from "class-variance-authority";
 import { X } from "lucide-vue-next";
@@ -163,10 +163,6 @@ const useDialogApi = () => {
 
 export const SheetTrigger = defineComponent({
   props: {
-    variant: {
-      type: String as PropType<ButtonVariant>,
-      default: "default",
-    },
     asChild: {
       type: Boolean,
       default: false,
@@ -179,22 +175,13 @@ export const SheetTrigger = defineComponent({
       props.asChild ? (
         context.slots.default?.(api.value.triggerProps)
       ) : (
-        <Button
-          variant={props.variant ?? "default"}
-          {...api.value.triggerProps}
-        >
-          {context.slots.default?.()}
-        </Button>
+        <Button {...api.value.triggerProps}>{context.slots.default?.()}</Button>
       );
   },
 });
 
 export const SheetClose = defineComponent({
   props: {
-    variant: {
-      type: String as PropType<ButtonVariant>,
-      default: "default",
-    },
     asChild: {
       type: Boolean,
       default: false,
@@ -207,10 +194,7 @@ export const SheetClose = defineComponent({
       props.asChild ? (
         context.slots.default?.(api.value.closeTriggerProps)
       ) : (
-        <Button
-          variant={props.variant ?? "default"}
-          {...api.value.closeTriggerProps}
-        >
+        <Button {...api.value.closeTriggerProps}>
           {context.slots.default?.()}
         </Button>
       );

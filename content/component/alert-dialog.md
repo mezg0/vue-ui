@@ -51,13 +51,15 @@ import {
 ### Install the dependencies
 ::code-block
 ```bash
-npm install @zag-js/dialog @zag-js/vue
+npm install @zag-js/dialog
 ```
 ::
 
 ### Copy and paste this into your project
 ::code-block
 ```tsx
+// ~/components/ui/alert-dialog.tsx
+
 import {
   computed,
   provide,
@@ -69,7 +71,7 @@ import {
 import * as dialog from "@zag-js/dialog";
 import { normalizeProps, useMachine } from "@zag-js/vue";
 import { Button } from "~/components/ui/button";
-import { asChild } from "~/lib/utils";
+import { renderAsChild } from "~/lib/utils";
 
 const alertDialogInjectionKey = Symbol() as InjectionKey<
   ComputedRef<ReturnType<typeof dialog.connect>>
@@ -93,7 +95,7 @@ const AlertDialog = defineComponent({
   },
   setup(props, { emit, slots }) {
     const [state, send] = useMachine(
-      dialog.machine({ id: "1", role: "alertdialog" })
+      dialog.machine({ id: "alert-dialog", role: "alertdialog" })
     );
     const api = computed(() =>
       dialog.connect(state.value, send, normalizeProps)
@@ -135,7 +137,7 @@ const AlertDialogTrigger = defineComponent({
 
     return () =>
       props.asChild ? (
-        asChild(slots, { ...api.value.triggerProps, ...attrs })
+        renderAsChild(slots, { ...api.value.triggerProps, ...attrs })
       ) : (
         <Button {...api.value.triggerProps}>{slots.default?.()}</Button>
       );
@@ -259,7 +261,7 @@ const AlertDialogAction = defineComponent({
     const api = useDialogContext();
     return () =>
       props.asChild ? (
-        asChild(slots, { ...api.value.closeTriggerProps, ...attrs })
+        renderAsChild(slots, { ...api.value.closeTriggerProps, ...attrs })
       ) : (
         <Button {...attrs} {...api.value.closeTriggerProps}>
           {slots.default?.()}

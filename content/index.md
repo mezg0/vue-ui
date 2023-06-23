@@ -18,7 +18,7 @@ before proceeding.
 
 ::code-block
 ```bash
-npm i class-variance-authority
+npm i class-variance-authority @zag-js/vue clsx tailwind-merge lucide-vue-next
 ```
 ::
 
@@ -29,7 +29,7 @@ npm i class-variance-authority
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./components/**/*.{js,vue,ts}",
+    "./components/**/*.{js,vue,ts,tsx}",
     "./layouts/**/*.vue",
     "./pages/**/*.vue",
     "./plugins/**/*.{js,ts}",
@@ -39,7 +39,7 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "1rem",
       screens: {
         "2xl": "1400px",
       },

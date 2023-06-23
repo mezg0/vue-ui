@@ -1,19 +1,19 @@
 <template>
-  <div>
+  <div class="pl-1">
     <div>
       <NuxtLink
         href="/"
-        :class="buttonVariants({ variant: 'link', size: 'xs' })"
+        :class="cn(buttonVariants({ variant: 'link' }), 'py-2')"
       >
         Get Started
       </NuxtLink>
     </div>
-    <div class="space-y-4 flex flex-col mt-8" v-if="navigation?.[0]?.children">
+    <div class="flex flex-col mt-4" v-if="navigation?.[0]?.children">
       <template v-for="link in navigation[0].children">
         <span
           aria-disabled="true"
-          class="cursor-not-allowed text-muted-foreground opacity-50 w-max"
-          :class="buttonVariants({ variant: 'link', size: 'xs' })"
+          class="cursor-not-allowed text-muted-foreground opacity-50 w-max py-2"
+          :class="cn(buttonVariants({ variant: 'link' }), 'py-2')"
           v-if="link._draft"
         >
           {{ link.title }}
@@ -21,8 +21,8 @@
         <NuxtLink
           v-else
           :href="link._path"
-          class="[&.router-link-exact-active]:opacity-100 opacity-75 w-max"
-          :class="buttonVariants({ variant: 'link', size: 'xs' })"
+          class="[&.router-link-exact-active]:opacity-100 opacity-75 w-max py-2"
+          :class="cn(buttonVariants({ variant: 'link' }), 'py-2')"
         >
           {{ link.title }}
         </NuxtLink>
@@ -32,7 +32,8 @@
 </template>
 
 <script setup lang="ts">
-import { buttonVariants } from "~/components/button.vue";
+import { buttonVariants } from "~/components/ui/button";
+import { cn } from "~/lib/utils";
 
 const { data: navigation } = await useAsyncData("navigation", () => {
   return fetchContentNavigation();
