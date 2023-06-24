@@ -35,7 +35,7 @@ function visitor(node: any) {
     const filePath = path.join(process.cwd(), node.attributes.src as string);
 
     const splitString = node.attributes.src.split(".");
-    const fileExtension = splitString.length ? splitString[0] : "tsx";
+    const fileExtension = splitString.length ? splitString[1] : "tsx";
 
     const data = fs.readFileSync(filePath, "utf8");
 
