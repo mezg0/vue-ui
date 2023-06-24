@@ -39,7 +39,7 @@ function visitor(node: any) {
     node.children.push({
       type: "code",
       lang: "tsx",
-      value: data,
+      value: `// ~${node.attributes.src}\n\n` + data,
     });
   }
 

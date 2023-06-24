@@ -198,4 +198,4 @@ module.exports = {
 }
 ```
 
-You are now ready to start adding the [components](/component/alert) in your project.
+You are now ready to start adding the [components](/component/alert-dialog) in your project.

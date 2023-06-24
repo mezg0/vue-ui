@@ -58,6 +58,28 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            pre: {
+              backgroundColor: theme("colors.background"),
+              borderRadius: theme("borderRadius.md"),
+              border: "1px solid",
+            },
+            code: {
+              "&::before": {
+                display: "none",
+              },
+              "&::after": {
+                display: "none",
+              },
+            },
+            h1: {
+              marginBottom: "0.5em",
+            },
+          },
+        },
+      }),
     },
   },
   plugins: [require("@tailwindcss/typography")],
