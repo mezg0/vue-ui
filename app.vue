@@ -2,7 +2,7 @@
   <div>
     <header class="border-b h-14 sticky top-0 bg-background z-10">
       <nav class="flex items-center h-full container">
-        <div class="md:hidden mr-4 flex items-center">
+        <div class="sm:hidden mr-4 flex items-center">
           <Sheet :open="sheetOpen" @open-change="(open) => (sheetOpen = open)">
             <SheetTrigger as-child v-slot="triggerProps">
               <button v-bind="triggerProps"><Menu /></button>
@@ -19,10 +19,10 @@
       </nav>
     </header>
     <div
-      class="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10"
+      class="container flex-1 items-start sm:grid sm:grid-cols-[220px_minmax(0,1fr)] sm:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10"
     >
       <div
-        class="border-r h-full max-h-screen overflow-auto py-8 hidden md:block sticky top-14"
+        class="border-r h-full max-h-screen overflow-auto py-8 hidden sm:block sticky top-14"
       >
         <LayoutSidebar :navigation="navigation" />
       </div>

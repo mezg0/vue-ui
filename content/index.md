@@ -23,28 +23,10 @@ npm i class-variance-authority @zag-js/vue clsx tailwind-merge lucide-vue-next
 ::
 
 ### Add helper functions
-::code-block
-```ts
-// ~/lib/utils.ts
-
-import { ClassValue, clsx } from "clsx";
-import { h, Slots } from "vue";
-import { twMerge } from "tailwind-merge";
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-
-export function renderAsChild(slots: Slots, attrs: Record<string, unknown>) {
-  if (!slots.default?.().length) return null;
-
-  return h(slots.default()[0], { ...attrs });
-}
-```
+::component-source{src="/lib/utils.ts"}
 ::
 
 ### Configure `tailwind.config.js`
-
 ::code-block
 ```json
 /** @type {import('tailwindcss').Config} */

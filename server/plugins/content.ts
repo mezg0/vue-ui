@@ -1,5 +1,5 @@
 import fs from "fs";
-import { unified, Preset } from "unified";
+import { unified } from "unified";
 import parse from "remark-parse";
 import stringify from "remark-stringify";
 import remarkMDC from "remark-mdc";
@@ -34,11 +34,14 @@ function visitor(node: any) {
 
     const filePath = path.join(process.cwd(), node.attributes.src as string);
 
+    const splitString = node.attributes.src.split(".");
+    const fileExtension = splitString.length ? splitString[0] : "tsx";
+
     const data = fs.readFileSync(filePath, "utf8");
 
     node.children.push({
       type: "code",
-      lang: "tsx",
+      lang: fileExtension,
       value: `// ~${node.attributes.src}\n\n` + data,
     });
   }
