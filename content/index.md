@@ -1,7 +1,7 @@
 # Customizable and Reusable Vue components
 
  A collection of customizable Vue components built with
-[TailwindCSS](https://tailwindcss.com/) and [zagjs](https://zagjs.com/) that are designed
+[TailwindCSS](https://tailwindcss.com/) and [Ark UI](https://ark-ui.com/) that are designed
 to be copied and pasted into your project. This project has been heavily
 inspired by [shadcn](https://ui.shadcn.com/) and uses the
 same design system.
@@ -18,7 +18,7 @@ before proceeding.
 
 ::code-block
 ```bash
-npm i class-variance-authority @zag-js/vue clsx tailwind-merge lucide-vue-next
+npm i class-variance-authority npm install @ark-ui/vue clsx tailwind-merge lucide-vue-next
 ```
 ::
 

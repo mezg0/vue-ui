@@ -7,7 +7,7 @@
             <SheetTrigger as-child v-slot="triggerProps">
               <button v-bind="triggerProps"><Menu /></button>
             </SheetTrigger>
-            <SheetContent position="left" size="xl">
+            <SheetContent side="left" size="xl">
               <LayoutSidebar :navigation="navigation" />
             </SheetContent>
           </Sheet>
@@ -34,7 +34,7 @@
 </template>
 <script setup>
 import { Menu } from "lucide-vue-next";
-import Sheet, { SheetContent, SheetTrigger } from "./components/sheet.vue";
+import { Sheet, SheetContent, SheetTrigger } from "./components/ui/sheet";
 
 const { data: navigation } = await useAsyncData("navigation", () => {
   return fetchContentNavigation();

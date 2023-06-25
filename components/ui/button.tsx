@@ -43,8 +43,12 @@ const Button = defineComponent({
       type: Boolean,
       default: false,
     },
+    onClick: {
+      type: Function as PropType<(e: MouseEvent) => void>,
+      default: () => {},
+    },
   },
-  setup({ variant, size, asChild }, { slots, attrs }) {
+  setup({ variant, size, asChild, onClick }, { slots, attrs }) {
     return () =>
       asChild ? (
         renderAsChild(slots, {
@@ -54,6 +58,7 @@ const Button = defineComponent({
       ) : (
         <button
           {...attrs}
+          onClick={onClick}
           class={cn(buttonVariants({ variant, size }), attrs.class ?? "")}
         >
           {slots.default?.()}
