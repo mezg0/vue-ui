@@ -11,25 +11,25 @@ import { normalizeProps, useMachine } from "@zag-js/vue";
 import { Button } from "~/components/ui/button";
 import { renderAsChild } from "~/lib/utils";
 
-const alertDialogInjectionKey = Symbol() as InjectionKey<
+const sheetInjectionKey = Symbol() as InjectionKey<
   ComputedRef<ReturnType<typeof dialog.connect>>
 >;
 const useDialogContext = () => {
-  const api = inject(alertDialogInjectionKey);
+  const api = inject(sheetInjectionKey);
 
   if (!api) {
-    throw new Error("The root context was not found for the alert dialog.");
+    throw new Error("The root context was not found for the sheet.");
   }
 
   return api;
 };
 
-type AlertDialogInstance = InstanceType<typeof AlertDialog> & {
+type SheetInstance = InstanceType<typeof Sheet> & {
   open: () => void;
   close: () => void;
 };
 
-const AlertDialog = defineComponent({
+const Sheet = defineComponent({
   props: {
     isOpen: {
       type: Boolean,
@@ -47,7 +47,7 @@ const AlertDialog = defineComponent({
       dialog.connect(state.value, send, normalizeProps)
     );
 
-    provide(alertDialogInjectionKey, api);
+    provide(sheetInjectionKey, api);
 
     watch(
       () => api.value.isOpen,
@@ -76,7 +76,7 @@ const AlertDialog = defineComponent({
   },
 });
 
-const AlertDialogTrigger = defineComponent({
+const SheetTrigger = defineComponent({
   props: {
     asChild: {
       type: Boolean,
@@ -95,7 +95,7 @@ const AlertDialogTrigger = defineComponent({
   },
 });
 
-const AlertDialogContent = defineComponent({
+const SheetContent = defineComponent({
   setup(_, context) {
     const api = useDialogContext();
 
@@ -140,101 +140,5 @@ const AlertDialogContent = defineComponent({
   },
 });
 
-const AlertDialogHeader = defineComponent({
-  setup(_, context) {
-    return () => (
-      <div class="flex flex-col space-y-2 text-center sm:text-left">
-        {context.slots.default?.()}
-      </div>
-    );
-  },
-});
-
-const AlertDialogTitle = defineComponent({
-  setup(_, context) {
-    const api = useDialogContext();
-    return () => (
-      <h2
-        class="text-lg font-medium leading-6 text-gray-900"
-        {...api.value.titleProps}
-      >
-        {context.slots.default?.()}
-      </h2>
-    );
-  },
-});
-
-const AlertDialogDescription = defineComponent({
-  setup(_, context) {
-    const api = useDialogContext();
-    return () => (
-      <p class="text-sm text-muted-foreground" {...api.value.descriptionProps}>
-        {context.slots.default?.()}
-      </p>
-    );
-  },
-});
-
-const AlertDialogFooter = defineComponent({
-  setup(_, context) {
-    return () => (
-      <div class="flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2">
-        {context.slots.default?.()}
-      </div>
-    );
-  },
-});
-
-const AlertDialogCancel = defineComponent({
-  setup(_, context) {
-    const api = useDialogContext();
-
-    return () => (
-      <Button
-        class="mt-2 sm:mt-0"
-        variant="secondary"
-        {...api.value.closeTriggerProps}
-      >
-        {context.slots.default?.()}
-      </Button>
-    );
-  },
-});
-
-const AlertDialogAction = defineComponent({
-  props: {
-    closeDialog: {
-      type: Boolean,
-      default: true,
-    },
-    asChild: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  setup(props, { slots, attrs }) {
-    const api = useDialogContext();
-    return () =>
-      props.asChild ? (
-        renderAsChild(slots, { ...api.value.closeTriggerProps, ...attrs })
-      ) : (
-        <Button {...attrs} {...api.value.closeTriggerProps}>
-          {slots.default?.()}
-        </Button>
-      );
-  },
-});
-
-export {
-  AlertDialog,
-  AlertDialogTrigger,
-  AlertDialogContent,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogAction,
-  AlertDialogCancel,
-  type AlertDialogInstance,
-};
+export { Sheet, SheetTrigger, SheetContent };
 

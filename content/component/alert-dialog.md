@@ -69,3 +69,24 @@ import {
   :::alert-dialog-custom-trigger
   :::
 ::
+
+### Trigger a dialog manually
+::code-block 
+```vue
+<script setup>
+import {
+  AlertDialog,
+  ...
+  type AlertDialogInstance,
+} from "~/components/ui/alert-dialog";
+
+const dialog = ref<AlertDialogInstance>();
+</script>
+
+<template>
+  <button @click="dialog.value?.open()">Open</button>
+  <AlertDialog ref="dialog">
+    ...
+  </AlertDialog>
+</template>
+```
