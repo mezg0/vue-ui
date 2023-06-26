@@ -35,6 +35,8 @@
 <script setup>
 import { Menu } from "lucide-vue-next";
 import { Sheet, SheetContent, SheetTrigger } from "./components/ui/sheet";
+import { ref, watch } from "vue";
+import { useAsyncData, useRoute } from "#imports";
 
 const { data: navigation } = await useAsyncData("navigation", () => {
   return fetchContentNavigation();
@@ -47,9 +49,5 @@ const route = useRoute();
 watch(route, () => {
   sheetOpen.value = false;
 });
-
-const color = useColorMode();
-
-color.preference = "light";
 </script>
 

@@ -1,5 +1,5 @@
 import { VariantProps, cva } from "class-variance-authority";
-import { defineComponent } from "vue";
+import { defineComponent, PropType } from "vue";
 import { cn, renderAsChild } from "~/lib/utils";
 
 export const buttonVariants = cva(

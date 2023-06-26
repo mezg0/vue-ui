@@ -1,4 +1,4 @@
-import { defineComponent } from "vue";
+import { defineComponent, PropType } from "vue";
 import { VariantProps, cva } from "class-variance-authority";
 import { cn } from "~/lib/utils";
 

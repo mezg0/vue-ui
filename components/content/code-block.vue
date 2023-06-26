@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { CopyIcon, Check } from "lucide-vue-next";
 import { Button } from "~/components/ui/button";
+import { ref } from "vue";
 
 const codeContainer = ref<HTMLElement | null>(null);
 const isCopied = ref(false);

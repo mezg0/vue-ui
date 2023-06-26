@@ -24,5 +24,8 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  // imports: {
+  //   autoImport: false,
+  // },
 });
 
