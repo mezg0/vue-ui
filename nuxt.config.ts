@@ -16,7 +16,6 @@ export default defineNuxtConfig({
       anchorLinks: false,
     },
   },
-  devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
   postcss: {
     plugins: {
