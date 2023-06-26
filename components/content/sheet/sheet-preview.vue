@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Button } from "~/components/ui/button";
 import {
   Sheet,
   SheetContent,
@@ -6,6 +7,8 @@ import {
   SheetHeader,
   SheetTitle,
   SheetDescription,
+  SheetFooter,
+  SheetCloseButton,
 } from "~/components/ui/sheet";
 </script>
 
@@ -20,6 +23,11 @@ import {
           account and remove your data from our servers.
         </SheetDescription>
       </SheetHeader>
+      <SheetFooter>
+        <SheetCloseButton>
+          <Button>Save</Button>
+        </SheetCloseButton>
+      </SheetFooter>
     </SheetContent>
   </Sheet>
 </template>

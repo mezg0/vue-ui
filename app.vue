@@ -7,7 +7,7 @@
             <SheetTrigger as-child v-slot="triggerProps">
               <button v-bind="triggerProps"><Menu /></button>
             </SheetTrigger>
-            <SheetContent side="left" size="xl">
+            <SheetContent side="left">
               <LayoutSidebar :navigation="navigation" />
             </SheetContent>
           </Sheet>

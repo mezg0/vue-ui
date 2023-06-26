@@ -3,7 +3,7 @@
     <div>
       <NuxtLink
         href="/"
-        :class="cn(buttonVariants({ variant: 'link' }), 'py-2')"
+        :class="cn(buttonVariants({ variant: 'link' }), 'py-2 text-md')"
       >
         Get Started
       </NuxtLink>
@@ -12,8 +12,13 @@
       <template v-for="link in navigation[0].children">
         <span
           aria-disabled="true"
-          class="cursor-not-allowed text-muted-foreground opacity-50 w-max py-2"
-          :class="cn(buttonVariants({ variant: 'link' }), 'py-2')"
+          class=""
+          :class="
+            cn(
+              buttonVariants({ variant: 'link' }),
+              'cursor-not-allowed text-muted-foreground opacity-50 w-max py-2 text-md'
+            )
+          "
           v-if="link._draft"
         >
           {{ link.title }}
@@ -21,8 +26,12 @@
         <NuxtLink
           v-else
           :href="link._path"
-          class="[&.router-link-exact-active]:opacity-100 opacity-75 w-max py-2"
-          :class="cn(buttonVariants({ variant: 'link' }), 'py-2')"
+          :class="
+            cn(
+              buttonVariants({ variant: 'link' }),
+              'py-2 text-md [&.router-link-exact-active]:opacity-100 opacity-75 w-max'
+            )
+          "
         >
           {{ link.title }}
         </NuxtLink>

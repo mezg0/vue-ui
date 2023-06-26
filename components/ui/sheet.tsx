@@ -97,6 +97,13 @@ const SheetContent = defineComponent({
   setup({ side }, context) {
     const isOpen = inject(isOpenKey);
 
+    const transitionClasses = {
+      top: "-translate-y-full",
+      bottom: "translate-y-full",
+      left: "-translate-x-full",
+      right: "translate-x-full",
+    };
+
     return () => (
       <Teleport to="body">
         <Transition
@@ -112,10 +119,10 @@ const SheetContent = defineComponent({
 
         <DialogContainer class="fixed inset-0 z-50 flex items-end justify-center sm:items-center">
           <Transition
-            enter-from-class="sm:opacity-0 sm:scale-90 translate-y-full sm:translate-y-0"
-            leave-to-class="sm:opacity-0 sm:scale-90 translate-y-full sm:translate-y-0"
-            enter-active-class="transition duration-200 sm:duration-150 ease-out"
-            leave-active-class="transition duration-150 sm:duration-100 ease-in"
+            enter-from-class={transitionClasses[side ?? "right"]}
+            leave-to-class={transitionClasses[side ?? "right"]}
+            enter-active-class="transition-transform duration-300 ease-out"
+            leave-active-class="transition-transform duration-200 ease-in"
           >
             {isOpen?.value && (
               <DialogContent class={sheetVariants({ side })}>
@@ -183,37 +190,11 @@ const SheetFooter = defineComponent({
   },
 });
 
-const SheetCancel = defineComponent({
-  setup(_, context) {
+const SheetCloseButton = defineComponent({
+  setup(_, { slots, attrs }) {
     return () => (
       <DialogCloseTrigger>
-        <Button variant="secondary" class="mt-2 sm:mt-0">
-          {context.slots.default?.()}
-        </Button>
-      </DialogCloseTrigger>
-    );
-  },
-});
-
-const SheetAction = defineComponent({
-  props: {
-    asChild: {
-      type: Boolean,
-      default: false,
-    },
-    onClick: {
-      type: Function as PropType<(e: MouseEvent) => void>,
-      default: () => {},
-    },
-  },
-  setup(props, { slots, attrs }) {
-    return () => (
-      <DialogCloseTrigger>
-        {props.asChild ? (
-          renderAsChild(slots, { ...attrs })
-        ) : (
-          <Button onClick={props.onClick}>{slots.default?.()}</Button>
-        )}
+        {renderAsChild(slots, { ...attrs })}
       </DialogCloseTrigger>
     );
   },
@@ -227,7 +208,6 @@ export {
   SheetTitle,
   SheetDescription,
   SheetFooter,
-  SheetAction,
-  SheetCancel,
+  SheetCloseButton,
 };
 
