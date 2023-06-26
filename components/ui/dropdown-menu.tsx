@@ -12,7 +12,6 @@ import {
 import { cn } from "~/lib/utils";
 import { Teleport } from "vue";
 import { ChevronRight } from "lucide-vue-next";
-import { ClientOnly } from "~/.nuxt/components";
 
 const DropdownMenu = defineComponent({
   emits: {
@@ -23,13 +22,12 @@ const DropdownMenu = defineComponent({
     onMounted(() => {
       show.value = true;
     });
-    return () => (
-      <ClientOnly>
+    return () =>
+      show.value ? (
         <Menu {...attrs} onSelect={({ value }) => emit("select", value)}>
           {slots.default?.()}
         </Menu>
-      </ClientOnly>
-    );
+      ) : null;
   },
 });
 const DropdownMenuTrigger = MenuTrigger;
