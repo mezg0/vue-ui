@@ -24,9 +24,8 @@
     "class-variance-authority": "^0.6.0",
     "clsx": "^1.2.1",
     "highlight.js": "^11.8.0",
-    "lucide-vue-next": "^0.246.0",
+    "lucide-vue-next": "^0.252.0",
     "remark-stringify": "^10.0.3",
     "tailwind-merge": "^1.13.2"
   }
 }
-
