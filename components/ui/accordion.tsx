@@ -5,6 +5,7 @@ import {
   AccordionContent as AccordionContentPrimitive,
 } from "@ark-ui/vue";
 import { cn } from "~/lib/utils";
+import { defineComponent, ref, onMounted, onBeforeUnmount } from "vue";
 
 const AccordionItem = defineComponent({
   props: {
@@ -65,7 +66,7 @@ const AccordionContent = defineComponent({
       window.addEventListener("resize", updateContentHeight);
     });
 
-    onBeforeMount(() => {
+    onBeforeUnmount(() => {
       window.removeEventListener("resize", updateContentHeight);
     });
 
