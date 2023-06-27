@@ -10,7 +10,7 @@ import {
   MenuTriggerItem,
 } from "@ark-ui/vue";
 import { cn } from "~/lib/utils";
-import { Teleport } from "vue";
+import { Teleport, defineComponent, onMounted, ref, h } from "vue";
 import { ChevronRight } from "lucide-vue-next";
 
 const Chevron = defineComponent({
