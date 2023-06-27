@@ -18,7 +18,7 @@ before proceeding.
 
 ::code-block
 ```bash
-npm i class-variance-authority npm install @ark-ui/vue clsx tailwind-merge lucide-vue-next
+npm i class-variance-authority @ark-ui/vue clsx tailwind-merge lucide-vue-next
 ```
 ::
 

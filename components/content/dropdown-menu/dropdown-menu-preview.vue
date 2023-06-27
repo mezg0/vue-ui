@@ -21,6 +21,8 @@ import {
   Plus,
   UserPlus,
 } from "lucide-vue-next";
+import { Mail, MessageSquare } from "lucide-vue-next";
+import { PlusCircle } from "lucide-vue-next";
 </script>
 
 <template>
@@ -56,14 +58,23 @@ import {
           Team settings
         </DropdownMenuItem>
         <DropdownMenuSub>
-          <DropdownMenuSubTrigger id="team-members">
+          <DropdownMenuSubTrigger>
             <UserPlus class="mr-2 h-4 w-4" />
             Invite users
           </DropdownMenuSubTrigger>
           <DropdownMenuContent>
-            <DropdownMenuItem id="team-members-invite">
-              <Plus class="mr-2 h-4 w-4" />
+            <DropdownMenuItem id="invite-email">
+              <Mail class="mr-2 h-4 w-4" />
               Email
+            </DropdownMenuItem>
+            <DropdownMenuItem id="invite-chat">
+              <MessageSquare class="mr-2 h-4 w-4" />
+              Chat
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem id="invite-more">
+              <PlusCircle class="mr-2 h-4 w-4" />
+              More
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenuSub>
@@ -71,4 +82,3 @@ import {
     </DropdownMenuContent>
   </DropdownMenu>
 </template>
-

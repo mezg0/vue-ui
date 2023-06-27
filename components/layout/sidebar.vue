@@ -1,12 +1,7 @@
 <template>
   <div class="pl-1">
     <div>
-      <NuxtLink
-        href="/"
-        :class="cn(buttonVariants({ variant: 'link' }), 'py-2 text-md')"
-      >
-        Get Started
-      </NuxtLink>
+      <LinkWrapper :close-trigger="isSheet" href="/">Get Started</LinkWrapper>
     </div>
     <div class="flex flex-col mt-4" v-if="navigation?.[0]?.children">
       <template v-for="link in navigation[0].children">
@@ -23,25 +18,17 @@
         >
           {{ link.title }}
         </span>
-        <NuxtLink
-          v-else
-          :href="link._path"
-          :class="
-            cn(
-              buttonVariants({ variant: 'link' }),
-              'py-2 text-md [&.router-link-exact-active]:opacity-100 opacity-75 w-max'
-            )
-          "
-        >
+        <LinkWrapper v-else :href="link._path" :close-trigger="isSheet">
           {{ link.title }}
-        </NuxtLink>
+        </LinkWrapper>
       </template>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="tsx">
 import { buttonVariants } from "~/components/ui/button";
+import { SheetCloseButton } from "~/components/ui/sheet";
 import { cn } from "~/lib/utils";
 
 defineProps<{
@@ -53,6 +40,38 @@ defineProps<{
       _draft?: boolean;
     }[];
   }[];
+  isSheet?: boolean;
 }>();
-</script>
 
+const LinkWrapper = defineComponent({
+  props: {
+    closeTrigger: {
+      type: Boolean,
+      default: false,
+    },
+    href: {
+      type: String,
+    },
+  },
+  setup({ closeTrigger, href }, { slots }) {
+    return () =>
+      closeTrigger ? (
+        <SheetCloseButton>
+          <NuxtLink
+            class={cn(buttonVariants({ variant: "link" }), "py-2 text-md justify-start")}
+            href={href}
+          >
+            {slots.default?.()}
+          </NuxtLink>
+        </SheetCloseButton>
+      ) : (
+        <NuxtLink
+          class={cn(buttonVariants({ variant: "link" }), "py-2 text-md justify-start")}
+          href={href}
+        >
+          {slots.default?.()}
+        </NuxtLink>
+      );
+  },
+});
+</script>

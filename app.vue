@@ -8,7 +8,7 @@
               <button v-bind="triggerProps"><Menu /></button>
             </SheetTrigger>
             <SheetContent side="left">
-              <LayoutSidebar :navigation="navigation" />
+              <LayoutSidebar :is-sheet="true" :navigation="navigation" />
             </SheetContent>
           </Sheet>
         </div>
@@ -50,4 +50,3 @@ watch(route, () => {
   sheetOpen.value = false;
 });
 </script>
-

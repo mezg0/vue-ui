@@ -18,16 +18,19 @@ const DropdownMenu = defineComponent({
     select: (id: string) => true,
   },
   setup(_, { slots, attrs, emit }) {
-    const show = ref(false);
+    const key = ref("ssr");
     onMounted(() => {
-      show.value = true;
+      key.value = "csr";
     });
-    return () =>
-      show.value ? (
-        <Menu {...attrs} onSelect={({ value }) => emit("select", value)}>
-          {slots.default?.()}
-        </Menu>
-      ) : null;
+    return () => (
+      <Menu
+        key={key.value}
+        {...attrs}
+        onSelect={({ value }) => emit("select", value)}
+      >
+        {slots.default?.()}
+      </Menu>
+    );
   },
 });
 const DropdownMenuTrigger = MenuTrigger;
