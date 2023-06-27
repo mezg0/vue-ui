@@ -6,7 +6,7 @@
       <nav class="flex items-center justify-between h-full container">
         <div class="flex">
           <div class="sm:hidden mr-4 flex items-center">
-            <Sheet :open="sheetOpen" @open-change="(open) => (sheetOpen = open)">
+            <Sheet>
               <SheetTrigger as-child v-slot="triggerProps">
                 <button v-bind="triggerProps"><Menu /></button>
               </SheetTrigger>
@@ -42,9 +42,15 @@
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-              <DropdownMenuItem id="system">System</DropdownMenuItem>
-              <DropdownMenuItem id="light">Light</DropdownMenuItem>
-              <DropdownMenuItem id="dark">Dark</DropdownMenuItem>
+              <DropdownMenuItem id="system">
+                <Laptop2 class="h-4 w-4 mr-2" /> System
+              </DropdownMenuItem>
+              <DropdownMenuItem id="light">
+                <Sun class="h-4 w-4 mr-2" /> Light
+              </DropdownMenuItem>
+              <DropdownMenuItem id="dark">
+                <Moon class="h-4 w-4 mr-2" /> Dark
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
@@ -74,7 +80,7 @@ import {
   DropdownMenuItem,
 } from "~/components/ui/dropdown-menu";
 import { Button, buttonVariants } from "~/components/ui/button";
-import { Moon, Sun, Github } from "lucide-vue-next";
+import { Moon, Sun, Laptop2 } from "lucide-vue-next";
 
 const colorMode = useColorMode();
 
@@ -87,3 +93,4 @@ const handleColorPreference = (color) => {
   console.log(colorMode);
 };
 </script>
+
