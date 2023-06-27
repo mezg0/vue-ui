@@ -65,6 +65,7 @@ module.exports = {
               backgroundColor: theme("colors.black"),
               borderRadius: theme("borderRadius.md"),
               border: "1px solid",
+              borderColor: theme("colors.border"),
               maxHeight: "450px",
             },
             code: {
