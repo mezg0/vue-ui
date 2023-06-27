@@ -62,7 +62,7 @@ module.exports = {
         DEFAULT: {
           css: {
             pre: {
-              backgroundColor: theme("colors.background"),
+              backgroundColor: theme("colors.black"),
               borderRadius: theme("borderRadius.md"),
               border: "1px solid",
               maxHeight: "450px",

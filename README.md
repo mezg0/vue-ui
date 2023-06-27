@@ -1,63 +1,9 @@
-# Nuxt 3 Minimal Starter
+# mezg0/vue-ui
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Accessible and reusable Vue UI components that you can copy and paste into your project. Inspired by [shadcn/ui](https://github.com/shadcn/ui)
 
-## Setup
+## Documentation
+Visit [https://ui.mezg0.com/](https://ui.mezg0.com/) for documentation.
 
-Make sure to install the dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## License
+Licensed under the [MIT License](https://github.com/mezg0/vue-ui/blob/main/LICENSE.md)

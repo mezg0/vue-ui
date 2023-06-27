@@ -44,4 +44,3 @@ const onCopyClick = () => {
     </Transition>
   </div>
 </template>
-

@@ -11,7 +11,7 @@
           :class="
             cn(
               buttonVariants({ variant: 'link' }),
-              'cursor-not-allowed text-muted-foreground opacity-50 w-max py-2 text-md'
+              'cursor-not-allowed text-muted-foreground opacity-50 w-max py-2 pl-0'
             )
           "
           v-if="link._draft"
@@ -58,7 +58,7 @@ const LinkWrapper = defineComponent({
       closeTrigger ? (
         <SheetCloseButton>
           <NuxtLink
-            class={cn(buttonVariants({ variant: "link" }), "py-2 text-md justify-start")}
+            class={cn(buttonVariants({ variant: "link" }), "py-2 justify-start pl-0")}
             href={href}
           >
             {slots.default?.()}
@@ -66,7 +66,7 @@ const LinkWrapper = defineComponent({
         </SheetCloseButton>
       ) : (
         <NuxtLink
-          class={cn(buttonVariants({ variant: "link" }), "py-2 text-md justify-start")}
+          class={cn(buttonVariants({ variant: "link" }), "py-2 justify-start pl-0")}
           href={href}
         >
           {slots.default?.()}
