@@ -100,7 +100,7 @@ Alternatively, you can set the `asChild` parameter and nest the link component.
 ### Icon
 ::component-example{src="/components/content/button/button-icon.vue"}
 #preview
-  :::button-with-icon
+  :::button-icon
   :::
 ::
 
