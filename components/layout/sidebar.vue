@@ -58,7 +58,10 @@ const LinkWrapper = defineComponent({
       closeTrigger ? (
         <SheetCloseButton>
           <NuxtLink
-            class={cn(buttonVariants({ variant: "link" }), "py-2 justify-start pl-0")}
+            class={cn(
+              buttonVariants({ variant: "link" }),
+              "py-2 justify-start pl-0 [&.router-link-exact-active]:opacity-100 opacity-75"
+            )}
             href={href}
           >
             {slots.default?.()}
@@ -66,7 +69,10 @@ const LinkWrapper = defineComponent({
         </SheetCloseButton>
       ) : (
         <NuxtLink
-          class={cn(buttonVariants({ variant: "link" }), "py-2 justify-start pl-0")}
+          class={cn(
+            buttonVariants({ variant: "link" }),
+            "py-2 justify-start pl-0 [&.router-link-exact-active]:opacity-100 opacity-75"
+          )}
           href={href}
         >
           {slots.default?.()}
@@ -75,3 +81,4 @@ const LinkWrapper = defineComponent({
   },
 });
 </script>
+
