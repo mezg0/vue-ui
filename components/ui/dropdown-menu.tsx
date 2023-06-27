@@ -13,6 +13,15 @@ import { cn } from "~/lib/utils";
 import { Teleport } from "vue";
 import { ChevronRight } from "lucide-vue-next";
 
+const Chevron = defineComponent({
+  setup() {
+    return () =>
+      h(ChevronRight, {
+        class: "w-4 h-4 ml-auto",
+      });
+  },
+});
+
 const DropdownMenu = defineComponent({
   emits: {
     select: (id: string) => true,
@@ -102,7 +111,7 @@ const DropdownMenuSubTrigger = defineComponent({
         )}
       >
         {slots.default?.()}
-        <ChevronRight class="ml-auto h-4 w-4" />
+        <Chevron />
       </MenuTriggerItem>
     );
   },
