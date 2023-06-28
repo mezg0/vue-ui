@@ -37,8 +37,13 @@
           <DropdownMenu @select="handleColorPreference">
             <DropdownMenuTrigger>
               <Button variant="ghost" size="icon">
-                <Moon v-if="colorMode.value === 'dark'" class="h-5 w-5" />
-                <Sun v-if="colorMode.value === 'light'" class="h-5 w-5" />
+                <ClientOnly>
+                  <Moon v-if="colorMode.value === 'dark'" class="h-5 w-5" />
+                  <Sun
+                    v-else-if="colorMode.value === 'light'"
+                    class="h-5 w-5"
+                  />
+                </ClientOnly>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>

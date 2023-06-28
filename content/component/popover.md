@@ -7,3 +7,33 @@ Displays rich content in a portal, triggered by a button.
   :::popover-preview
   :::
 ::
+
+## Installation
+### Copy and paste this into your project
+::component-source{src="/components/ui/popover.tsx"}
+::
+
+## Usage
+::code-block
+```ts
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+} from "~/components/ui/popover";
+```
+::
+
+::code-block
+```html
+<Popover>
+  <PopoverTrigger>
+    <button>Open Popover</button>
+  </PopoverTrigger>
+  <PopoverContent>
+    <div class="p-4">Popover content</div>
+  </PopoverContent>
+</Popover>
+```
+::
+
