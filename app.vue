@@ -89,8 +89,7 @@ const { data: navigation } = await useAsyncData("navigation", () => {
 });
 
 const handleColorPreference = (color) => {
-  colorMode.preference = color;
-  console.log(colorMode);
+  colorMode.preference = color.value;
 };
 </script>
 

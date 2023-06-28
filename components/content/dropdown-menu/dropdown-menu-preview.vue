@@ -26,7 +26,7 @@ import { PlusCircle } from "lucide-vue-next";
 </script>
 
 <template>
-  <DropdownMenu>
+  <DropdownMenu :close-on-select="true">
     <DropdownMenuTrigger>
       <Button variant="outline">Menu</Button>
     </DropdownMenuTrigger>
@@ -82,3 +82,4 @@ import { PlusCircle } from "lucide-vue-next";
     </DropdownMenuContent>
   </DropdownMenu>
 </template>
+

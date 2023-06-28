@@ -5,11 +5,12 @@ import {
   MenuItemGroup,
   MenuItemGroupLabel,
   MenuPositioner,
+  MenuProps,
   MenuSeparator,
   MenuTrigger,
   MenuTriggerItem,
 } from "@ark-ui/vue";
-import { cn } from "~/lib/utils";
+import { ExtendProps, cn } from "~/lib/utils";
 import { Teleport, defineComponent, onMounted, ref, h } from "vue";
 import { ChevronRight } from "lucide-vue-next";
 
@@ -23,20 +24,14 @@ const Chevron = defineComponent({
 });
 
 const DropdownMenu = defineComponent({
-  emits: {
-    select: (id: string) => true,
-  },
-  setup(_, { slots, attrs, emit }) {
+  props: {} as ExtendProps<MenuProps>,
+  setup(_, { slots, attrs }) {
     const key = ref("ssr");
     onMounted(() => {
       key.value = "csr";
     });
     return () => (
-      <Menu
-        key={key.value}
-        {...attrs}
-        onSelect={({ value }) => emit("select", value)}
-      >
+      <Menu key={key.value} {...attrs}>
         {slots.default?.()}
       </Menu>
     );

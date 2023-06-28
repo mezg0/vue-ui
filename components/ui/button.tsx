@@ -1,6 +1,6 @@
 import { VariantProps, cva } from "class-variance-authority";
 import { defineComponent, PropType } from "vue";
-import { cn, renderAsChild } from "~/lib/utils";
+import { ExtendProps, cn, renderAsChild } from "~/lib/utils";
 
 export const buttonVariants = cva(
   "inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
@@ -31,6 +31,20 @@ export const buttonVariants = cva(
   }
 );
 
+type ButtonProps = ExtendProps<{
+  [K in keyof HTMLButtonElement]?: HTMLButtonElement[K];
+}> & {
+  variant: {
+    type: PropType<VariantProps<typeof buttonVariants>["variant"]>;
+  };
+  size: {
+    type: PropType<VariantProps<typeof buttonVariants>["size"]>;
+  };
+  asChild: {
+    type: PropType<boolean | undefined>;
+  };
+};
+
 const Button = defineComponent({
   props: {
     variant: {
@@ -40,15 +54,10 @@ const Button = defineComponent({
       type: String as PropType<VariantProps<typeof buttonVariants>["size"]>,
     },
     asChild: {
-      type: Boolean,
-      default: false,
+      type: Boolean as PropType<boolean | undefined>,
     },
-    onClick: {
-      type: Function as PropType<(e: MouseEvent) => void>,
-      default: () => {},
-    },
-  },
-  setup({ variant, size, asChild, onClick }, { slots, attrs }) {
+  } as ButtonProps,
+  setup({ variant, size, asChild }, { slots, attrs }) {
     return () =>
       asChild ? (
         renderAsChild(slots, {
@@ -58,7 +67,6 @@ const Button = defineComponent({
       ) : (
         <button
           {...attrs}
-          onClick={onClick}
           class={cn(buttonVariants({ variant, size }), attrs.class ?? "")}
         >
           {slots.default?.()}

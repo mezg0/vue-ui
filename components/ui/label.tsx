@@ -4,7 +4,10 @@ const Label = defineComponent({
   setup(_, { slots, attrs }) {
     return () => (
       <label
-        class={cn("block font-medium text-sm text-gray-700", attrs.class ?? "")}
+        class={cn(
+          "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+          attrs.class ?? ""
+        )}
       >
         {slots.default?.()}
       </label>

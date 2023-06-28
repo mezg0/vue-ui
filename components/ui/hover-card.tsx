@@ -3,11 +3,13 @@ import {
   HoverCardContent as HoverCardContentPrimitive,
   HoverCardPositioner,
   HoverCardTrigger,
+  HoverCardProps,
 } from "@ark-ui/vue";
-import { cn } from "~/lib/utils";
+import { ExtendProps, cn } from "~/lib/utils";
 import { defineComponent, Teleport, onMounted, ref } from "vue";
 
 const HoverCard = defineComponent({
+  props: {} as ExtendProps<HoverCardProps>,
   setup(_, { slots }) {
     const key = ref("ssr");
     onMounted(() => {

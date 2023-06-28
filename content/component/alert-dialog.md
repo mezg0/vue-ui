@@ -54,11 +54,3 @@ import {
 ```
 ::
 
-## Examples
-
-### Custom trigger
-::component-example{src="/components/content/alert-dialog/alert-dialog-custom-trigger.vue"}
-#preview
-  :::alert-dialog-custom-trigger
-  :::
-::

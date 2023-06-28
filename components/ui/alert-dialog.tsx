@@ -10,7 +10,7 @@ import {
   PropType,
 } from "vue";
 import { Button } from "~/components/ui/button";
-import { cn, renderAsChild } from "~/lib/utils";
+import { ExtendProps, cn, renderAsChild } from "~/lib/utils";
 import {
   Dialog,
   DialogBackdrop,
@@ -18,6 +18,7 @@ import {
   DialogContainer,
   DialogContent,
   DialogDescription,
+  DialogProps,
   DialogTitle,
   DialogTrigger,
 } from "@ark-ui/vue";
@@ -41,9 +42,10 @@ const AlertDialogContext = defineComponent({
 });
 
 const AlertDialog = defineComponent({
-  setup(_, { slots }) {
+  props: {} as ExtendProps<DialogProps>,
+  setup(props, { slots }) {
     return () => (
-      <Dialog>
+      <Dialog {...props}>
         {({ isOpen }: { isOpen: boolean }) => (
           <AlertDialogContext isOpen={isOpen}>
             {slots.default?.()}
@@ -54,25 +56,7 @@ const AlertDialog = defineComponent({
   },
 });
 
-const AlertDialogTrigger = defineComponent({
-  props: {
-    asChild: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  setup(props, { slots, attrs }) {
-    return () => (
-      <DialogTrigger>
-        {props.asChild ? (
-          renderAsChild(slots, { ...attrs })
-        ) : (
-          <Button {...attrs}>{slots.default?.()}</Button>
-        )}
-      </DialogTrigger>
-    );
-  },
-});
+const AlertDialogTrigger = DialogTrigger;
 
 const AlertDialogContent = defineComponent({
   setup(_, context) {
@@ -191,7 +175,7 @@ const AlertDialogAction = defineComponent({
         {props.asChild ? (
           renderAsChild(slots, { ...attrs })
         ) : (
-          <Button onClick={props.onClick}>{slots.default?.()}</Button>
+          <Button onclick={props.onClick}>{slots.default?.()}</Button>
         )}
       </DialogCloseTrigger>
     );

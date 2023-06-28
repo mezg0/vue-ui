@@ -11,7 +11,7 @@ import {
   ref,
 } from "vue";
 import { Button } from "~/components/ui/button";
-import { cn, renderAsChild } from "~/lib/utils";
+import { ExtendProps, cn, renderAsChild } from "~/lib/utils";
 import {
   Dialog,
   DialogBackdrop,
@@ -19,6 +19,7 @@ import {
   DialogContainer,
   DialogContent,
   DialogDescription,
+  DialogProps,
   DialogTitle,
   DialogTrigger,
 } from "@ark-ui/vue";
@@ -60,6 +61,7 @@ const SheetContext = defineComponent({
 });
 
 const Sheet = defineComponent({
+  props: {} as ExtendProps<DialogProps>,
   setup(_, { slots }) {
     return () => (
       <Dialog>

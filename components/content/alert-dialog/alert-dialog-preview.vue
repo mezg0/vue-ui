@@ -10,11 +10,14 @@ import {
   AlertDialogAction,
   AlertDialogFooter,
 } from "~/components/ui/alert-dialog";
+import { Button } from "~/components/ui/button";
 </script>
 
 <template>
   <AlertDialog>
-    <AlertDialogTrigger>Open</AlertDialogTrigger>
+    <AlertDialogTrigger>
+      <Button>Open</Button>
+    </AlertDialogTrigger>
     <AlertDialogContent>
       <AlertDialogHeader>
         <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>

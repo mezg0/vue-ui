@@ -3,23 +3,19 @@ import {
   AccordionTrigger as AccordionTriggerPrimitive,
   AccordionItem as AccordionItemPrimitive,
   AccordionContent as AccordionContentPrimitive,
+  AccordionItemProps,
 } from "@ark-ui/vue";
-import { cn } from "~/lib/utils";
+import { ExtendProps, cn } from "~/lib/utils";
 import { defineComponent, ref, onMounted, onBeforeUnmount } from "vue";
 
 const AccordionItem = defineComponent({
-  props: {
-    value: {
-      type: String,
-      required: true,
-    },
-  },
-  setup({ value }, { slots, attrs }) {
+  props: {} as ExtendProps<AccordionItemProps>,
+  setup(props, { slots, attrs }) {
     return () => (
       <AccordionItemPrimitive
         class={cn("border-b", attrs.class ?? "")}
-        value={value}
         {...attrs}
+        {...props}
       >
         {slots.default?.()}
       </AccordionItemPrimitive>
