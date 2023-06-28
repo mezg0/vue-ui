@@ -6,7 +6,7 @@ import {
   PopoverProps,
 } from "@ark-ui/vue";
 import { ExtendProps, cn } from "~/lib/utils";
-import { PropType } from "vue";
+import { defineComponent, onMounted, ref } from "vue";
 
 const Popover = defineComponent({
   props: {} as ExtendProps<PopoverProps>,

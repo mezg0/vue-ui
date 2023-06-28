@@ -1,4 +1,5 @@
 import { cn } from "~/lib/utils";
+import { defineComponent } from "vue";
 
 const Input = defineComponent({
   props: {
