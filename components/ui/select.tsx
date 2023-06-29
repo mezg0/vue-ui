@@ -20,6 +20,7 @@ import {
   provide,
   inject,
   h,
+  PropType,
 } from "vue";
 import { CheckIcon, ChevronDown } from "lucide-vue-next";
 
