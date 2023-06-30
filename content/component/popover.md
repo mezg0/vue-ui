@@ -14,7 +14,6 @@ Displays rich content in a portal, triggered by a button.
 ::
 
 ## Usage
-::code-block
 ```ts
 import {
   Popover,
@@ -22,9 +21,7 @@ import {
   PopoverContent,
 } from "~/components/ui/popover";
 ```
-::
 
-::code-block
 ```html
 <Popover>
   <PopoverTrigger>
@@ -35,5 +32,4 @@ import {
   </PopoverContent>
 </Popover>
 ```
-::
 

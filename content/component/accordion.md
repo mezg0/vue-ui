@@ -17,7 +17,6 @@ A modal dialog that interrupts the user with important content and expects a res
 ::
 
 ## Usage
-::code-block
 ```ts
 import {
   Accordion,
@@ -26,9 +25,7 @@ import {
   AccordionContent,
 } from "~/components/ui/accordion";
 ```
-::
 
-::code-block
 ```html
 <Accordion type="single" collapsible>
   <AccordionItem value="item-1">
@@ -39,4 +36,3 @@ import {
   </AccordionItem>
 </Accordion>
 ```
-::

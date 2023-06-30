@@ -14,7 +14,6 @@
 ::
 
 ## Usage
-::code-block
 ```ts
 import {
   DropdownMenu,
@@ -25,13 +24,11 @@ import {
   DropdownMenuSub,
 } from "~/components/ui/dropdown-menu";
 ```
-::
 
 ::alert
 **Note**: All dropdown menu items must have an `id` attribute. This is used to identify item is clicked through the `@select` event.
 ::
 
-::code-block
 ```html
 <DropdownMenu @select="(...)">
   <DropdownMenuTrigger>Open</DropdownMenuTrigger>
@@ -58,4 +55,3 @@ import {
   </DropdownMenuContent>
 </DropdownMenu>
 ```
-::

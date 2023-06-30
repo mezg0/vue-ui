@@ -17,7 +17,6 @@ Displays a card with header, content, and footer.
 ::
 
 ## Usage
-::code-block
 ```ts
 import {
   Card,
@@ -28,9 +27,7 @@ import {
   CardFooter,
 } from "~/components/ui/card";
 ```
-::
 
-::code-block
 ```html
 <Card>
   <CardHeader>
@@ -45,4 +42,3 @@ import {
   </CardFooter>
 </Card>
 ```
-::

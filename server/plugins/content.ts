@@ -67,6 +67,20 @@ function visitor(node: any) {
       data: { hName: "component-slot", hProperties: { "v-slot:code": "" } },
     });
   }
+
+  if (node.type === "code" && node.ignoreTransform !== true) {
+    const code = Object.assign({}, node);
+
+    node.type = "containerComponent";
+    node.name = "code-block";
+    node.attributes = {};
+    node.children = [
+      {
+        ...code,
+        ignoreTransform: true,
+      },
+    ];
+  }
 }
 
 export default defineNitroPlugin((nitroApp) => {

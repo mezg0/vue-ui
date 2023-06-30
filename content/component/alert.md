@@ -16,20 +16,16 @@ Displays a callout for user attention.
 ::
 
 ## Usage
-::code-block
 ```ts
 import {Alert, AlertTitle, AlertDescription} from '~/components/ui/alert.vue';
 ```
-::
 
-::code-block
 ```html
 <Alert>
   <AlertTitle>You have mail</AlertTitle>
   <AlertDescription>You should read it.</AlertDescription>
 </Alert>
 ```
-::
 
 ## Examples
 

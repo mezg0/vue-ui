@@ -16,13 +16,10 @@ Displays a button or a component that looks like a button.
 ::
 
 ## Usage
-::code-block
 ```ts
 import { Button } from "~/components/ui/button";
 ```
-::
 
-::code-block
 ```html
 <Button variant="secondary">Button</Button>
 ```
@@ -30,27 +27,21 @@ import { Button } from "~/components/ui/button";
 ### Link
 You can use the `buttonVariants` helper to create a link that looks like a button.
 
-::code-block
 ```ts
 import { buttonVariants } from "~/components/ui/button"
 ```
-::
 
-::code-block
-```vue
+```html
 <Link class="buttonVariants({ variant: 'outline' })">Click here</Link>
 ```
-::
 
 Alternatively, you can set the `asChild` parameter and nest the link component.
 
-::code-block
 ```html
 <Button as-child>
   <Link href="/login">Login</Link>
 </Button>
 ```
-::
 
 ## Examples
 

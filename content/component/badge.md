@@ -17,32 +17,24 @@ Displays a badge or a component that looks like a badge.
 ::
 
 ## Usage
-::code-block
 ```ts
 import { Badge } from "~/components/ui/badge";
 ```
-::
 
-::code-block
-```vue
+```html
 <Badge>Badge</Badge>
 ```
-::
 
 ### Link
 You can use the `badgeVariants` helper to create a link that looks like a badge.
 
-::code-block
 ```ts
 import { badgeVariants } from "~/components/ui/badge";
 ```
-::
 
-::code-block
 ```vue
 <Link class="badgeVariants({ variant: 'outline' })">Link</Link>
 ```
-::
 
 ## Examples
 

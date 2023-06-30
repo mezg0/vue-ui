@@ -17,7 +17,6 @@ A modal dialog that interrupts the user with important content and expects a res
 ::
 
 ## Usage
-::code-block
 ```ts
 import {
   AlertDialog,
@@ -31,9 +30,7 @@ import {
   AlertDialogFooter,
 } from "~/components/ui/alert-dialog";
 ```
-::
 
-::code-block
 ```html
 <AlertDialog>
   <AlertDialogTrigger>Open</AlertDialogTrigger>
@@ -52,5 +49,4 @@ import {
   </AlertDialogContent>
 </AlertDialog>
 ```
-::
 

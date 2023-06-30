@@ -14,28 +14,21 @@ A succinct message that is displayed temporarily.
 ::
 
 ### Wrap your app in the `ToastProvider`.
-::code-block
 ```ts
 import { ToastProvider } from "~/components/ui/toast";
 ```
-::
 
-::code-block
 ```html
 <ToastProvider>
   <App />
 </ToastProvider>
 ```
-::
 
 ## Usage
-::code-block
 ```ts
 import { useToast } from "~/components/ui/toast";
 ```
-::
 
-::code-block
 ```ts
 const toast = useToast();
 toast({
@@ -46,4 +39,3 @@ toast({
   duration: 5000,
 })
 ```
-::

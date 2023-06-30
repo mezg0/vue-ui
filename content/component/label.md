@@ -14,14 +14,10 @@ Renders an accessible label associated with controls.
 ::
 
 ## Usage
-::code-block
 ```ts
 import { Label } from "~/components/ui/label";
 ```
-::
 
-::code-block
 ```html
 <Label for="email">Email</Label>
 ```
-::

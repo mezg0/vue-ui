@@ -15,17 +15,14 @@ Displays a form input field or a component that looks like an input field.
 ::
 
 ## Usage
-::code-block
+
 ```ts
 import { Input } from "~/components/ui/input";
 ```
-::
 
-::code-block
 ```html
 <Input type="email" placeholder="Enter your email" />
 ```
-::
 
 ## Examples
 ### Default 

@@ -15,13 +15,10 @@ For sighted users to preview content available behind a link.
 ::
 
 ## Usage
-::code-block
 ```ts
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "~/components/ui/hover-card";
 ```
-::
 
-::code-block
 ```html
 <HoverCard>
   <HoverCardTrigger>
@@ -32,4 +29,3 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from "~/components/ui/h
   </HoverCardContent>
 </HoverCard>
 ```
-::

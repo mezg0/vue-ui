@@ -15,13 +15,10 @@ A popup that displays information related to an element when the element receive
 ::
 
 ## Usage
-::code-block
 ```ts
 import { Tooltip, TooltipContent, TooltipTrigger } from "~/components/ui/tooltip";
 ```
-::
 
-::code-block
 ```html
 <Tooltip>
   <TooltipTrigger>
@@ -32,4 +29,3 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "~/components/ui/tooltip
   </TooltipContent>
 </Tooltip>
 ```
-::

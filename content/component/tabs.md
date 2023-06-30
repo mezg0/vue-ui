@@ -14,14 +14,11 @@ A set of layered sections of content—known as tab panels—that are displayed 
 ::
 
 ## Usage
-::code-block
 ```ts
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
 
 ```
-::
 
-::code-block
 ```html
 <Tabs default-value="one">
   <TabsList>
@@ -34,4 +31,3 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
   <TabsContent value="three">Tab 3 content</TabsContent>
 </Tabs>
 ```
-::

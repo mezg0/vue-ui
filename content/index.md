@@ -16,18 +16,15 @@ before proceeding.
 
 ### Install the dependencies
 
-::code-block
 ```bash
 npm i class-variance-authority @ark-ui/vue clsx tailwind-merge lucide-vue-next
 ```
-::
 
 ### Add helper functions
 ::component-source{src="/lib/utils.ts"}
 ::
 
 ### Configure `tailwind.config.js`
-::code-block
 ```json
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -96,7 +93,6 @@ module.exports = {
 
 ### Configure styles
 
-::code-block
 ```css
 @tailwind base;
 @tailwind components;

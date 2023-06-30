@@ -14,7 +14,6 @@ Displays a list of options for the user to pick from—triggered by a button.
 ::
 
 ## Usage
-::code-block
 ```ts
 import {
   Select,
@@ -24,9 +23,7 @@ import {
   SelectValue,
 } from "~/components/ui/select";
 ```
-::
 
-::code-block
 ```html
 <Select>
   <SelectTrigger>
@@ -39,5 +36,4 @@ import {
   </SelectContent>
 </Select>
 ```
-::
 

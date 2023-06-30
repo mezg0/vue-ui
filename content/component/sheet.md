@@ -14,7 +14,7 @@ Extends the Dialog component to display content that complements the main conten
 ::
 
 ## Usage
-::code-block
+
 ```ts
 import {
   Sheet,
@@ -27,9 +27,7 @@ import {
   SheetCloseButton,
 } from "~/components/ui/sheet";
 ```
-::
 
-::code-block
 ```html
 <Sheet>
   <SheetTrigger>Open</SheetTrigger>
@@ -44,7 +42,6 @@ import {
   </SheetContent>
 </Sheet>
 ```
-::
 
 ## Examples
 
