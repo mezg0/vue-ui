@@ -23,8 +23,8 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  // imports: {
-  //   autoImport: false,
-  // },
+  imports: {
+    autoImport: false,
+  },
 });
 
