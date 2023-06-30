@@ -4,24 +4,13 @@
       <LinkWrapper :close-trigger="isSheet" href="/">Get Started</LinkWrapper>
     </div>
     <div class="flex flex-col mt-4" v-if="navigation?.[0]?.children">
-      <template v-for="link in navigation[0].children">
-        <span
-          aria-disabled="true"
-          class=""
-          :class="
-            cn(
-              buttonVariants({ variant: 'link' }),
-              'cursor-not-allowed text-muted-foreground opacity-50 w-max py-2 pl-0'
-            )
-          "
-          v-if="link._draft"
-        >
-          {{ link.title }}
-        </span>
-        <LinkWrapper v-else :href="link._path" :close-trigger="isSheet">
-          {{ link.title }}
-        </LinkWrapper>
-      </template>
+      <LinkWrapper
+        v-for="link in navigation[0].children"
+        :href="link._path"
+        :close-trigger="isSheet"
+      >
+        {{ link.title }}
+      </LinkWrapper>
     </div>
   </div>
 </template>
@@ -60,7 +49,7 @@ const LinkWrapper = defineComponent({
           <NuxtLink
             class={cn(
               buttonVariants({ variant: "link" }),
-              "py-2 justify-start pl-0 [&.router-link-exact-active]:opacity-100 opacity-75"
+              "py-1 justify-start pl-0 [&.router-link-exact-active]:opacity-100 opacity-50"
             )}
             href={href}
           >
@@ -71,7 +60,7 @@ const LinkWrapper = defineComponent({
         <NuxtLink
           class={cn(
             buttonVariants({ variant: "link" }),
-            "py-2 justify-start pl-0 [&.router-link-exact-active]:opacity-100 opacity-75"
+            "py-1 justify-start pl-0 [&.router-link-exact-active]:opacity-100 opacity-50"
           )}
           href={href}
         >
