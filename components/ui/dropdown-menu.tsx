@@ -48,7 +48,7 @@ const DropdownMenuContent = defineComponent({
         <MenuPositioner>
           <MenuContent
             class={cn(
-              "relative z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-md focus:outline-none",
+              "z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-lg focus:outline-none",
               attrs.class ?? ""
             )}
           >
