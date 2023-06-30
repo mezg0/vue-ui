@@ -49,10 +49,6 @@ import { PlusCircle } from "lucide-vue-next";
           <Keyboard class="mr-2 h-4 w-4" />
           Keyboard shortcuts
         </DropdownMenuItem>
-        <DropdownMenuItem id="shortcuts">
-          <Keyboard class="mr-2 h-4 w-4" />
-          Keyboard shortcuts
-        </DropdownMenuItem>
       </DropdownMenuGroup>
       <!-- <DropdownMenuSeparator /> -->
       <DropdownMenuGroup id="team">
