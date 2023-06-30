@@ -49,6 +49,10 @@ import { PlusCircle } from "lucide-vue-next";
           <Keyboard class="mr-2 h-4 w-4" />
           Keyboard shortcuts
         </DropdownMenuItem>
+        <DropdownMenuItem id="shortcuts">
+          <Keyboard class="mr-2 h-4 w-4" />
+          Keyboard shortcuts
+        </DropdownMenuItem>
       </DropdownMenuGroup>
       <!-- <DropdownMenuSeparator /> -->
       <DropdownMenuGroup id="team">
@@ -57,7 +61,7 @@ import { PlusCircle } from "lucide-vue-next";
           <Settings2 class="mr-2 h-4 w-4" />
           Team settings
         </DropdownMenuItem>
-        <DropdownMenuSub>
+        <DropdownMenu>
           <DropdownMenuSubTrigger>
             <UserPlus class="mr-2 h-4 w-4" />
             Invite users
@@ -77,7 +81,7 @@ import { PlusCircle } from "lucide-vue-next";
               More
             </DropdownMenuItem>
           </DropdownMenuContent>
-        </DropdownMenuSub>
+        </DropdownMenu>
       </DropdownMenuGroup>
     </DropdownMenuContent>
   </DropdownMenu>
