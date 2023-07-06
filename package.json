@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@ark-ui/vue": "^0.5.1",
+    "@vercel/analytics": "^1.0.1",
     "class-variance-authority": "^0.6.0",
     "clsx": "^1.2.1",
     "highlight.js": "^11.8.0",

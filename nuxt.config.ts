@@ -8,7 +8,6 @@ export default defineNuxtConfig({
   },
   content: {
     highlight: {
-      // Theme used in all color schemes.
       theme: "github-dark",
       preload: ["vue", "bash", "tsx", "ts"],
     },
@@ -23,6 +22,7 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  plugins: [{ src: "~/plugins/vercel.ts", mode: "client" }],
   // imports: {
   //   autoImport: false,
   // },
