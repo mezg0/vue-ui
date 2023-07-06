@@ -5,11 +5,13 @@ import {
   SelectContent,
   SelectOption,
   SelectValue,
+  SelectLabel,
 } from "~/components/ui/select";
 </script>
 
 <template>
   <Select>
+    <SelectLabel>Fruit</SelectLabel>
     <SelectTrigger class="w-[180px]">
       <SelectValue placeholder="Select a fruit" />
     </SelectTrigger>

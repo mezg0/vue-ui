@@ -4,6 +4,7 @@ import {
   SelectOption as SelectOptionPrimitive,
   SelectPositioner,
   SelectTrigger as SelectTriggerPrimitive,
+  SelectLabel as SelectLabelPrimitive,
   SelectProps,
 } from "@ark-ui/vue";
 
@@ -23,6 +24,7 @@ import {
   PropType,
 } from "vue";
 import { CheckIcon, ChevronDown } from "lucide-vue-next";
+import { labelClasses } from "~/components/ui/label";
 
 const Check = defineComponent({
   setup() {
@@ -73,27 +75,21 @@ const SelectContext = defineComponent({
 
 const Select = defineComponent({
   props: {} as ExtendProps<SelectProps>,
-  emits: {
-    "update:modelValue": (value: string | undefined) => true,
-  },
-  setup(props, { slots, emit }) {
+  setup(_, { slots, emit }) {
     const key = ref("ssr");
     onMounted(() => {
       key.value = "csr";
     });
+
     return () => (
-      <SelectPrimitive
-        value={props.modelValue}
-        onChange={(selected) => emit("update:modelValue", selected?.value)}
-        key={key.value}
-      >
+      <SelectPrimitive key={key.value}>
         {({
           selectedOption,
         }: {
           selectedOption?: { value: string; label: string };
         }) => (
           <SelectContext selectedOption={selectedOption}>
-            {slots.default?.()}
+            <div class="grid gap-2">{slots.default?.()}</div>
           </SelectContext>
         )}
       </SelectPrimitive>
@@ -131,7 +127,6 @@ const SelectValue = defineComponent({
 
     return () => (
       <div>
-        {" "}
         {selectedOption?.value ? selectedOption.value.label : placeholder}
       </div>
     );
@@ -194,5 +189,24 @@ const SelectOption = defineComponent({
   },
 });
 
-export { Select, SelectTrigger, SelectValue, SelectContent, SelectOption };
+const SelectLabel = defineComponent({
+  setup(_, { slots, attrs }) {
+    return () => {
+      return (
+        <SelectLabelPrimitive class={cn(labelClasses, attrs.class ?? "")}>
+          {slots.default?.()}
+        </SelectLabelPrimitive>
+      );
+    };
+  },
+});
+
+export {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectOption,
+  SelectLabel,
+};
 
