@@ -45,7 +45,7 @@ watch(colorPickerValue, (value) => {
 
 <template>
   <div>
-    {{ colorPickerValue }}
+    <!-- {{ colorPickerValue }}
 
     <Popover closeOnInteractOutside>
       <PopoverTrigger>
@@ -76,7 +76,7 @@ watch(colorPickerValue, (value) => {
         <Label>Background</Label>
         <Input v-model="background" />
       </div>
-    </div>
+    </div> -->
     <div class="grid grid-cols-2 gap-8 mt-8 theme-container">
       <div ref="light" class="light">
         <ThemeComponentContainer title="Light" />
