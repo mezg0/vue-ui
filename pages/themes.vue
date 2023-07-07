@@ -9,7 +9,12 @@ import {
 } from "~/components/ui/select";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
-import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
+import { ColorPicker, ColorPickerInput } from "~/components/ui/color-picker";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "~/components/ui/popover";
 import { Button } from "~/components/ui/button";
 
 const theme = ref({
@@ -17,35 +22,39 @@ const theme = ref({
   value: "default",
 });
 
-const radius = ref("");
-const background = ref("");
-
 const light = ref<HTMLElement | null>(null);
-
-watch(radius, (value) => {
-  if (!light.value) return;
-  light.value.style.setProperty("--radius", value);
-});
-watch(background, (value) => {
-  if (!light.value) return;
-  light.value.style.setProperty("--background", value);
-});
+const radius = useCssVar("--radius", light);
+const background = useCssVar("--background", light);
+const card = useCssVar("--card", light);
 
 onMounted(() => {
   if (!light.value) return;
-  radius.value = getComputedStyle(document.body).getPropertyValue("--radius");
-  light.value.style.setProperty("--radius", radius.value);
+  light.value.removeAttribute("style");
+});
 
-  background.value = getComputedStyle(document.body).getPropertyValue(
-    "--background"
-  );
+const colorPickerValue = ref("hsla(10, 81%, 59%, 1)");
+watch(colorPickerValue, (value) => {
+  const strippedValue = value
+    .replace("hsla(", "")
+    .replace(")", "")
+    .replaceAll(",", "");
 
-  light.value.style.setProperty("--background", background.value);
+  card.value = strippedValue.split(" ").splice(0, 3).join(" ");
 });
 </script>
 
 <template>
   <div>
+    {{ colorPickerValue }}
+
+    <Popover closeOnInteractOutside>
+      <PopoverTrigger>
+        <Button>Color</Button>
+      </PopoverTrigger>
+      <PopoverContent class="w-64 p-0">
+        <ColorPicker v-model="colorPickerValue" show-alpha id="test" />
+      </PopoverContent>
+    </Popover>
     <div class="w-48 max-w-full">
       <Select v-model="theme">
         <SelectLabel>Theme</SelectLabel>
@@ -68,26 +77,12 @@ onMounted(() => {
         <Input v-model="background" />
       </div>
     </div>
-    <div class="grid grid-cols-2 gap-8 mt-8">
-      <div ref="light">
-        <Card>
-          <CardHeader>
-            <CardTitle>Light</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <Button> Button </Button>
-          </CardContent>
-        </Card>
+    <div class="grid grid-cols-2 gap-8 mt-8 theme-container">
+      <div ref="light" class="light">
+        <ThemeComponentContainer title="Light" />
       </div>
       <div ref="dark" class="dark">
-        <Card>
-          <CardHeader>
-            <CardTitle>Dark</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <Button> Button </Button>
-          </CardContent>
-        </Card>
+        <ThemeComponentContainer title="Dark" />
       </div>
     </div>
   </div>

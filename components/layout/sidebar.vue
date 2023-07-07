@@ -1,7 +1,8 @@
 <template>
   <div class="pl-1">
-    <div>
+    <div class="flex flex-col">
       <LinkWrapper :close-trigger="isSheet" href="/">Get Started</LinkWrapper>
+      <LinkWrapper :close-trigger="isSheet" href="/themes">Themes</LinkWrapper>
     </div>
     <div class="flex flex-col mt-4" v-if="navigation?.[0]?.children">
       <LinkWrapper
