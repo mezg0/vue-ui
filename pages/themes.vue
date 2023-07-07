@@ -43,7 +43,7 @@ const radiusNumber = computed({
 
 <template>
   <div>
-    <div class="grid grid-cols-2 gap-8 mb-8">
+    <div class="grid lg:grid-cols-2 gap-8 mb-8">
       <div ref="light" class="light">
         <ThemeComponentContainer title="Light" />
       </div>
