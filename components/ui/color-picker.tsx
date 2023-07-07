@@ -87,7 +87,12 @@ const ColorPicker = defineComponent({
               </div>
               <div class="mt-8 flex space-x-2">
                 <ColorPickerChannelInput class={inputClasses} channel="hex" />
-                <ColorPickerChannelInput class={inputClasses} channel="alpha" />
+                {props.showAlpha && (
+                  <ColorPickerChannelInput
+                    class={inputClasses}
+                    channel="alpha"
+                  />
+                )}
               </div>
             </div>
           </ColorPickerContent>
