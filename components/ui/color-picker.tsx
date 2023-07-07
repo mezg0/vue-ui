@@ -38,10 +38,19 @@ const ColorPicker = defineComponent({
       type: Boolean,
       default: false,
     },
+    modelValue: {
+      type: String,
+    },
   },
-  setup(props) {
+  emits: {
+    "update:modelValue": (value?: string) => true,
+  },
+  setup(props, { emit }) {
     return () => (
-      <ColorPickerPrimitive>
+      <ColorPickerPrimitive
+        value={props.modelValue}
+        onChange={(e) => emit("update:modelValue", e.value)}
+      >
         {({ channels: [hue, saturation, lightness] }: ColorPickerContext) => (
           <ColorPickerContent class="w-64 flex flex-col max-w-full">
             <ColorPickerArea
@@ -89,19 +98,39 @@ const ColorPicker = defineComponent({
 });
 
 const ColorPickerInput = defineComponent({
-  setup() {
+  props: {
+    modelValue: {
+      type: String,
+      default: "",
+    },
+    showAlpha: {
+      type: Boolean,
+      default: false,
+    },
+    id: {
+      type: String,
+      required: true,
+    },
+  },
+  emits: {
+    "update:modelValue": (value?: string) => true,
+  },
+  setup(props, { slots, emit }) {
     return () => (
       <Popover closeOnInteractOutside>
-        <PopoverTrigger>
-          <Button>Color</Button>
-        </PopoverTrigger>
+        {slots.default?.()}
         <PopoverContent class="w-64 p-0 overflow-hidden">
-          <ColorPicker />
+          <ColorPicker
+            modelValue={props.modelValue}
+            onUpdate:modelValue={(e) => emit("update:modelValue", e)}
+          />
         </PopoverContent>
       </Popover>
     );
   },
 });
 
-export { ColorPicker, ColorPickerInput };
+const ColorPickerInputTrigger = PopoverTrigger;
+
+export { ColorPicker, ColorPickerInput, ColorPickerInputTrigger };
 
