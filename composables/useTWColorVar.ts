@@ -1,4 +1,5 @@
 import { MaybeElement, MaybeElementRef } from "@vueuse/core";
+import { twToHSLA } from "~/lib/themes";
 
 export const useTWColorVar = (
   cssVar: string,
@@ -8,7 +9,7 @@ export const useTWColorVar = (
 
   const computedValue = computed({
     get: () => {
-      return value.value ? `hsla(${value.value.replaceAll(" ", ", ")}, 1)` : "";
+      return value.value ? twToHSLA(value.value) : "";
     },
     set: (newValue: string) => {
       value.value = newValue

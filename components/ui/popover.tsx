@@ -24,7 +24,7 @@ const Popover = defineComponent({
 const PopoverContent = defineComponent({
   setup(_, { slots, attrs }) {
     return () => (
-      <PopoverPositioner>
+      <PopoverPositioner class="z-10">
         <PopoverContentPrimitive
           class={cn(
             "z-50 w-72 rounded-lg border bg-popover p-4 text-popover-foreground shadow-md outline-none",
