@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   content: {
     highlight: {
       theme: "github-dark",
-      preload: ["vue", "bash", "tsx", "ts"],
+      preload: ["vue", "bash", "tsx", "ts", "css"],
     },
     markdown: {
       anchorLinks: false,

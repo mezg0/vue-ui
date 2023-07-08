@@ -14,13 +14,12 @@ import {
   ColorPickerInput,
   ColorPickerInputTrigger,
 } from "~/components/ui/color-picker";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "~/components/ui/popover";
 import { Button } from "~/components/ui/button";
 import { Separator } from "~/components/ui/separator";
+import { generateCss, themes } from "~/lib/themes";
+import CodeBlock from "~/components/layout/code-block.vue";
+
+const theme = ref(themes.default);
 
 const light = ref<HTMLElement | null>(null);
 const dark = ref<HTMLElement | null>(null);
@@ -43,7 +42,11 @@ const radiusNumber = computed({
 
 <template>
   <div>
-    <div class="grid lg:grid-cols-2 gap-8 mb-8">
+    <div class="prose dark:prose-invert">
+      <h1>Themes</h1>
+      <p>Create your theme</p>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-8 mb-8 mt-12">
       <div ref="light" class="light">
         <ThemeComponentContainer title="Light" />
       </div>
@@ -104,6 +107,7 @@ const radiusNumber = computed({
         </div>
       </div>
     </div>
+    <CodeBlock :content="generateCss(theme)" language="css" class="my-8" />
   </div>
 </template>
 
