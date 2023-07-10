@@ -66,9 +66,11 @@
         class="container flex-1 items-start sm:grid sm:grid-cols-[200px_minmax(0,1fr)] sm:gap-6 lg:gap-10"
       >
         <div
-          class="border-r h-full max-h-screen overflow-auto py-8 hidden sm:block fixed top-14 w-[200px]"
+          class="border-r h-full max-h-screen overflow-auto -mt-14 py-6 hidden sm:block sticky top-0 w-[200px]"
         >
-          <LayoutSidebar :navigation="navigation" />
+          <div class="pt-14">
+            <LayoutSidebar :navigation="navigation" />
+          </div>
         </div>
         <main class="py-8 min-h-[calc(100vh-3.5rem)] col-start-2">
           <NuxtPage />

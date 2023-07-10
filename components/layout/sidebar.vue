@@ -49,7 +49,7 @@ const LinkWrapper = defineComponent({
           <NuxtLink
             class={cn(
               buttonVariants({ variant: "link" }),
-              "py-1 justify-start pl-0 [&.router-link-exact-active]:opacity-100 opacity-50"
+              "h-8 justify-start pl-0 [&.router-link-exact-active]:opacity-100 opacity-50"
             )}
             href={href}
           >
@@ -60,7 +60,7 @@ const LinkWrapper = defineComponent({
         <NuxtLink
           class={cn(
             buttonVariants({ variant: "link" }),
-            "py-1 justify-start pl-0 [&.router-link-exact-active]:opacity-100 opacity-50"
+            "h-8 justify-start pl-0 [&.router-link-exact-active]:opacity-100 opacity-50"
           )}
           href={href}
         >

@@ -3,5 +3,6 @@ import { Input } from "~/components/ui/input";
 </script>
 
 <template>
-  <Input type="email" placeholder="Email" />
+  <Input type="email" placeholder="Email" class="w-64" />
 </template>
+

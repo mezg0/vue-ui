@@ -3,6 +3,6 @@ import { Input } from "~/components/ui/input";
 </script>
 
 <template>
-  <Input type="file" />
+  <Input type="file" class="w-64" />
 </template>
 
