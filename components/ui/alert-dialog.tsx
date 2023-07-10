@@ -45,7 +45,7 @@ const AlertDialog = defineComponent({
   props: {} as ExtendProps<DialogProps>,
   setup(props, { slots }) {
     return () => (
-      <Dialog {...props}>
+      <Dialog {...props} preventScroll>
         {({ isOpen }: { isOpen: boolean }) => (
           <AlertDialogContext isOpen={isOpen}>
             {slots.default?.()}
