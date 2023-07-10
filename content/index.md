@@ -12,6 +12,8 @@ same design system.
 **Prerequisites:** Components are styled with TailwindCSS and built
 using Vue 3. Make sure that your project has both of these installed
 before proceeding.
+
+If you are using Vite you will also need to install the **[JSX plugin](https://www.npmjs.com/package/@vitejs/plugin-vue-jsx)** for vue. If you're using Nuxt, you won't need this.
 ::
 
 ### Install the dependencies
