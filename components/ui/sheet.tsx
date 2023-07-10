@@ -64,7 +64,7 @@ const Sheet = defineComponent({
   props: {} as ExtendProps<DialogProps>,
   setup(_, { slots }) {
     return () => (
-      <Dialog>
+      <Dialog preventScroll>
         {({ isOpen }: { isOpen: boolean }) => (
           <SheetContext isOpen={isOpen}>{slots.default?.()}</SheetContext>
         )}
