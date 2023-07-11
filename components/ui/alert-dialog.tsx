@@ -9,7 +9,7 @@ import {
   computed,
   PropType,
 } from "vue";
-import { Button } from "~/components/ui/button";
+import { Button, ButtonProps } from "~/components/ui/button";
 import { ExtendProps, cn, renderAsChild } from "~/lib/utils";
 import {
   Dialog,
@@ -162,20 +162,20 @@ const AlertDialogAction = defineComponent({
   props: {
     asChild: {
       type: Boolean,
-      default: false,
-    },
-    onClick: {
-      type: Function as PropType<(e: MouseEvent) => void>,
-      default: () => {},
     },
   },
-  setup(props, { slots, attrs }) {
+  emits: {
+    click: null,
+  },
+  setup(props, { slots, attrs, emit }) {
     return () => (
       <DialogCloseTrigger>
         {props.asChild ? (
           renderAsChild(slots, { ...attrs })
         ) : (
-          <Button onclick={props.onClick}>{slots.default?.()}</Button>
+          <Button onClick={() => emit("click")} {...attrs}>
+            {slots.default?.()}
+          </Button>
         )}
       </DialogCloseTrigger>
     );

@@ -1,5 +1,5 @@
 import { VariantProps, cva } from "class-variance-authority";
-import { defineComponent, PropType } from "vue";
+import { defineComponent, PropType, ButtonHTMLAttributes } from "vue";
 import { ExtendProps, cn, renderAsChild } from "~/lib/utils";
 
 export const buttonVariants = cva(
@@ -31,32 +31,24 @@ export const buttonVariants = cva(
   }
 );
 
-type ButtonProps = ExtendProps<{
-  [K in keyof HTMLButtonElement]?: HTMLButtonElement[K];
-}> & {
+const props = {
   variant: {
-    type: PropType<VariantProps<typeof buttonVariants>["variant"]>;
-  };
+    type: String as PropType<VariantProps<typeof buttonVariants>["variant"]>,
+  },
   size: {
-    type: PropType<VariantProps<typeof buttonVariants>["size"]>;
-  };
+    type: String as PropType<VariantProps<typeof buttonVariants>["size"]>,
+  },
   asChild: {
-    type: PropType<boolean | undefined>;
-  };
+    type: Boolean as PropType<boolean | undefined>,
+  },
 };
 
+export type ButtonProps = ExtendProps<
+  ButtonHTMLAttributes & ExtractPropTypes<typeof props>
+>;
+
 const Button = defineComponent({
-  props: {
-    variant: {
-      type: String as PropType<VariantProps<typeof buttonVariants>["variant"]>,
-    },
-    size: {
-      type: String as PropType<VariantProps<typeof buttonVariants>["size"]>,
-    },
-    asChild: {
-      type: Boolean as PropType<boolean | undefined>,
-    },
-  } as ButtonProps,
+  props: props as unknown as ButtonProps,
   setup({ variant, size, asChild }, { slots, attrs }) {
     return () =>
       asChild ? (
