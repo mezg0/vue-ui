@@ -2,6 +2,7 @@ import { ExtendProps } from "lib/utils";
 import { ExtractPropTypes } from "nuxt/dist/app/compat/capi";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
+import { defineComponent } from "vue";
 
 const Description = defineComponent({
   setup(_, { slots }) {
